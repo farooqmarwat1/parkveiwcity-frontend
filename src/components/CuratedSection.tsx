@@ -116,12 +116,12 @@ export default function CuratedSection() {
 
       {/* Grid */}
       <div ref={gridRef} className="relative mx-auto mt-2 sm:mt-10 max-w-[1400px] px-4 sm:px-10">
-        <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2.5">
           {columns.map((col, colIdx) => (
-            <motion.div 
-              key={colIdx} 
-              style={{ y: ys[colIdx] }} 
-              className="flex flex-col gap-2 sm:gap-2.5"
+            <motion.div
+              key={colIdx}
+              style={{ y: ys[colIdx] }}
+              className={`flex flex-col gap-2 sm:gap-2.5 ${colIdx === 2 ? "hidden md:flex" : ""}`}
             >
               {col.map((item, itemIdx) => {
                 const imageIndex = colIdx * 5 + itemIdx;
