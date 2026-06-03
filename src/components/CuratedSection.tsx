@@ -42,9 +42,9 @@ export default function CuratedSection() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Mobile: 2.5× ratio gives clear speed difference; small absolute values reduce empty bottom space
-  const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -140 : -450]);
-  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -350 : -1050]);
+  // Reduced travel so the section doesn't leave a huge gap above the next section
+  const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -80 : -200]);
+  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -220 : -520]);
   const ys = [fast, slow, fast];
 
   // Marquee completes fade BEFORE images reach it (progress ~0.16 < image overlap ~0.20)
@@ -53,7 +53,7 @@ export default function CuratedSection() {
 
   return (
     // Moderate mobile negative margin: reduces gap without cutting images
-    <section className="relative bg-white pt-16 sm:pt-32 pb-0 -mb-[60px] sm:-mb-32 overflow-hidden">
+    <section className="relative bg-white pt-16 sm:pt-32 pb-[150px] sm:pb-[500px] -mb-[60px] sm:-mb-[660px] overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: `
             @keyframes marquee {
                 0% { transform: translateX(0); }
@@ -78,8 +78,7 @@ export default function CuratedSection() {
           A New Realm of Curated Collaborations
         </p>
         <p
-          className="font-roboto mt-4 max-w-[1100px] px-2 leading-relaxed text-pvc-ink/70"
-          style={{ fontSize: "16px" }}
+          className="font-roboto mt-4 w-full max-w-[1247px] text-[16px] font-light leading-[24px] tracking-[0.9px] text-center text-pvc-ink/70"
         >
           Parkview City is more than a real estate development. It is a growing
           vision for secure, scenic, and modern urban living. Whether you are

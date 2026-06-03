@@ -74,7 +74,7 @@ export default function StatsSection() {
   const blueColor = "#1D2D4E";
 
   return (
-    <section className="relative overflow-hidden bg-white pt-14 pb-10 sm:pt-28 sm:pb-12">
+    <section className="relative overflow-hidden bg-white pt-28 pb-10 sm:pt-40 sm:pb-12">
       <style dangerouslySetInnerHTML={{ __html: `
         @font-face {
           font-family: 'Optima';

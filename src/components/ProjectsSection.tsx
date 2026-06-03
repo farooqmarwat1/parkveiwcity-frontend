@@ -36,8 +36,7 @@ export default function ProjectsSection() {
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
-          className="mb-12 text-center text-pvc-ink/70 lg:whitespace-nowrap"
-          style={{ fontFamily: "'Roboto', sans-serif", fontSize: "16px" }}>
+          className="mb-12 w-full max-w-[1247px] mx-auto font-roboto text-[16px] font-light leading-[24px] tracking-[0.9px] text-center text-pvc-ink/70">
           Parkview City is a thoughtfully planned real estate development brand creating modern residential and commercial communities across Pakistan.
         </motion.p>
 

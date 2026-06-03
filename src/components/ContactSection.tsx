@@ -49,7 +49,7 @@ export default function ContactSection() {
           <h2 className="font-termina text-[24px] sm:text-[32px] lg:text-[40px] font-normal text-pvc-navy">
             BEGIN YOUR JOURNEY HOME
           </h2>
-          <p className="mt-4 lg:whitespace-nowrap leading-relaxed text-pvc-grey" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "16px" }}>
+          <p className="mt-4 w-full max-w-[1069px] mx-auto font-roboto text-[16px] font-light leading-[26px] tracking-[0.9px] text-center text-pvc-grey">
             Our dedicated sales consultants are here to guide you through every step — from choosing the right plot to completing your paperwork.
           </p>
         </motion.div>
@@ -73,24 +73,24 @@ export default function ContactSection() {
                     <Icon className="h-4 w-4 text-pvc-gold" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="font-roboto text-[10px] uppercase tracking-[0.2em] text-pvc-grey">{label}</p>
-                    <p className="mt-0.5 font-normal text-pvc-navy" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "15px" }}>{value}</p>
+                    <p className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">{label}</p>
+                    <p className="mt-0.5 font-roboto text-[15px] font-normal leading-[22.5px] tracking-[0.9px] text-pvc-navy">{value}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Office hours */}
-            <div className="rounded-sm border border-pvc-gold/30 p-6">
-              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-pvc-gold">Office Hours</p>
+            <div className="rounded-[15px] border border-[#C4973A]/25 bg-white p-6">
+              <p className="mb-4 font-roboto text-[9px] font-normal leading-[13.5px] tracking-[0.9px] uppercase text-pvc-navy">Office Hours</p>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <p className="font-roboto text-[10px] text-pvc-grey">Mon – Sat</p>
-                  <p className="mt-1 font-normal text-pvc-navy" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "13px" }}>9:00 AM – 7:00 PM</p>
+                  <p className="font-roboto text-[10px] font-normal leading-[15px] tracking-[0.9px] text-pvc-grey">Mon – Sat</p>
+                  <p className="mt-1 font-roboto text-[13px] font-normal leading-[19.5px] tracking-[0.9px] text-pvc-navy">9:00 AM – 7:00 PM</p>
                 </div>
                 <div>
-                  <p className="font-roboto text-[10px] text-pvc-grey">Sunday</p>
-                  <p className="mt-1 font-normal text-pvc-navy" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "13px" }}>10:00 AM – 5:00 PM</p>
+                  <p className="font-roboto text-[10px] font-normal leading-[15px] tracking-[0.9px] text-pvc-grey">Sunday</p>
+                  <p className="mt-1 font-roboto text-[13px] font-normal leading-[19.5px] tracking-[0.9px] text-pvc-navy">10:00 AM – 5:00 PM</p>
                 </div>
               </div>
             </div>
@@ -102,18 +102,18 @@ export default function ContactSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="rounded-[15px] border border-gray-200 p-10">
 
-            <h3 className="mb-6 font-termina text-[20px] font-normal text-pvc-navy">Send an Enquiry</h3>
+            <h3 className="mb-6 font-termina text-[20px] font-normal text-pvc-navy">SEND AN ENQUIRY</h3>
 
             <form onSubmit={handleSubmit} autoComplete="off" className="flex flex-col gap-4">
               {/* Name + Phone */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Full Name <span className="text-pvc-gold">*</span></label>
+                  <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Full Name <span className="text-pvc-gold">*</span></label>
                   <input name="name" required placeholder="Your name" autoComplete="off" data-lpignore="true"
                     className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Phone <span className="text-pvc-gold">*</span></label>
+                  <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Phone <span className="text-pvc-gold">*</span></label>
                   <input name="phone" required placeholder="+92 xxx xxxxxxx" autoComplete="off" data-lpignore="true"
                     className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
@@ -121,21 +121,21 @@ export default function ContactSection() {
 
               {/* Email */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Email Address</label>
+                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Email Address</label>
                 <input name="email" type="email" placeholder="your@email.com" autoComplete="off" data-lpignore="true"
                   className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Interested In */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">I'm Interested In</label>
+                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">I'm Interested In</label>
                 <input name="interest" placeholder="e.g. Residential Plot, Apartment..." autoComplete="off" data-lpignore="true"
                   className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Message</label>
+                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Message</label>
                 <textarea name="message" rows={4} placeholder="Tell us about your requirements..." autoComplete="off"
                   className="resize-none rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
