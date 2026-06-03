@@ -4,11 +4,11 @@ import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 // Masonry layout logic
 type Item = { tall: boolean };
 
+// 3-column layout: col 1 fast, col 2 slow, col 3 fast
 const columns: Item[][] = [
-  [{ tall: true }, { tall: false }, { tall: true }, { tall: false }],
-  [{ tall: false }, { tall: true }, { tall: false }, { tall: true }],
-  [{ tall: true }, { tall: false }, { tall: false }, { tall: true }],
-  [{ tall: false }, { tall: true }, { tall: true }, { tall: false }],
+  [{ tall: true }, { tall: false }, { tall: true }, { tall: false }, { tall: true }],
+  [{ tall: false }, { tall: true }, { tall: false }, { tall: true }, { tall: false }],
+  [{ tall: true }, { tall: false }, { tall: true }, { tall: false }, { tall: true }],
 ];
 
 const imageTitles = [
@@ -45,7 +45,7 @@ export default function CuratedSection() {
   // Mobile: 2.5× ratio gives clear speed difference; small absolute values reduce empty bottom space
   const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -140 : -450]);
   const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -350 : -1050]);
-  const ys = [slow, fast, slow, fast];
+  const ys = [fast, slow, fast];
 
   // Marquee completes fade BEFORE images reach it (progress ~0.16 < image overlap ~0.20)
   const marqueeOpacity = useTransform(scrollYProgress, [0.04, 0.1, 0.16], [1, 1, 0]);
@@ -103,12 +103,12 @@ export default function CuratedSection() {
           >
             {[...Array(3)].map((_, set) => (
               <div key={set} className="flex items-center gap-24 px-12">
-                <img src="/PVIsb.png" alt="Islamabad" className="h-16 sm:h-20 w-auto object-contain" />
-                <img src="/PVLahore.png" alt="Lahore" className="h-16 sm:h-20 w-auto object-contain" />
-                <img src="/PVrawalpindi.png" alt="Rawalpindi" className="h-16 sm:h-20 w-auto object-contain" />
-                <img src="/PVIsb.png" alt="Islamabad" className="h-16 sm:h-20 w-auto object-contain" />
-                <img src="/PVLahore.png" alt="Lahore" className="h-16 sm:h-20 w-auto object-contain" />
-                <img src="/PVrawalpindi.png" alt="Rawalpindi" className="h-16 sm:h-20 w-auto object-contain" />
+                <img src="/PVIsb.png" alt="Islamabad" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
+                <img src="/PVLahore.png" alt="Lahore" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
+                <img src="/PVrawalpindi.png" alt="Rawalpindi" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
+                <img src="/PVIsb.png" alt="Islamabad" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
+                <img src="/PVLahore.png" alt="Lahore" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
+                <img src="/PVrawalpindi.png" alt="Rawalpindi" className="h-16 sm:h-20 w-auto object-contain" loading="eager" />
               </div>
             ))}
           </div>
@@ -117,7 +117,7 @@ export default function CuratedSection() {
 
       {/* Grid */}
       <div ref={gridRef} className="relative mx-auto mt-2 sm:mt-10 max-w-[1400px] px-4 sm:px-10">
-        <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:grid-cols-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
           {columns.map((col, colIdx) => (
             <motion.div 
               key={colIdx} 
@@ -125,7 +125,7 @@ export default function CuratedSection() {
               className="flex flex-col gap-2 sm:gap-2.5"
             >
               {col.map((item, itemIdx) => {
-                const imageIndex = colIdx * 4 + itemIdx;
+                const imageIndex = colIdx * 5 + itemIdx;
                 const imageNumber = imageIndex + 1;
                 
                 return (

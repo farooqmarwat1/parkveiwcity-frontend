@@ -78,7 +78,7 @@ export default function SearchBar() {
           <Dropdown key={f.label} label={f.label} defaultValue={f.default} options={f.options} grow={f.grow} />
         ))}
         <div className="flex items-center px-4 py-3 sm:px-2 sm:py-1.5">
-          <button className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/20 bg-white/5 px-7 py-2.5 text-[10px] uppercase tracking-[0.22em] text-white transition-colors duration-200 hover:border-pvc-gold hover:bg-pvc-gold hover:text-pvc-green-deep cursor-pointer sm:w-auto">
+          <button className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/40 px-7 py-2.5 font-roboto text-[10px] uppercase leading-none tracking-[0.22em] text-white/60 transition-colors duration-200 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer sm:w-auto">
             <Search className="h-3 w-3" />
             Show Results
           </button>

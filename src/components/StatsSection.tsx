@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
+import ExploreButton from "./ExploreButton";
 
 /* ── Animated counter ──────────────────────────────────────── */
 function Counter({
@@ -143,11 +144,7 @@ export default function StatsSection() {
           variants={fadeUp} initial="hidden" whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
           className="mt-14">
-          <a href="#"
-            className="rounded-full border border-black/10 px-12 py-3 font-roboto text-[12px] uppercase tracking-[0.2em] transition-all duration-300 hover:border-[#c9a24b] hover:text-[#c9a24b] cursor-pointer"
-            style={{ color: "#58595B" }}>
-            Explore
-          </a>
+          <ExploreButton variant="light" />
         </motion.div>
       </div>
     </section>

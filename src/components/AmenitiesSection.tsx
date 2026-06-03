@@ -37,7 +37,7 @@ function getBorderClasses(i: number) {
 export default function AmenitiesSection() {
   return (
     <section className="bg-white pt-6 pb-20 sm:pt-8 sm:pb-28">
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
 
         {/* Header */}
         <motion.div
@@ -60,14 +60,14 @@ export default function AmenitiesSection() {
               variants={fadeUp} initial="hidden" whileInView="show"
               viewport={{ once: true, amount: 0.1 }}
               transition={{ delay: (i % 4) * 0.05 }}
-              className={`flex items-center gap-4 border-gray-100 px-4 py-6 sm:px-5 sm:py-8 hover:bg-pvc-sand/30 transition-colors duration-200 ${getBorderClasses(i)}`}
+              className={`flex items-center gap-4 border-gray-100 p-8 min-h-[108px] hover:bg-pvc-sand/30 transition-colors duration-200 ${getBorderClasses(i)}`}
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pvc-gold bg-white">
                 <Icon className="h-5 w-5 text-pvc-gold" strokeWidth={1.5} />
               </div>
               <div>
-                <p className="whitespace-nowrap font-normal text-pvc-navy" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "14px" }}>{name}</p>
-                <p className="mt-0.5 uppercase tracking-[0.18em] text-pvc-gold/80" style={{ fontFamily: "'Roboto', sans-serif", fontSize: "9px" }}>{category}</p>
+                <p className="font-roboto text-[14px] font-normal leading-[19.25px] tracking-[0.9px] text-pvc-navy">{name}</p>
+                <p className="mt-0.5 font-roboto text-[9px] font-normal leading-[13.5px] tracking-[0.9px] uppercase text-[#58595B]/80">{category}</p>
               </div>
             </motion.div>
           ))}

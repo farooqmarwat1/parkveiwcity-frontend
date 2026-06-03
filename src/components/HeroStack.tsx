@@ -51,20 +51,12 @@ export default function HeroStack() {
         e.preventDefault();
         if (intentional) go(1);
       } else if (isGoingDown && currentPanel === heroes.length - 1 && isAtTop) {
-        // Last panel, scrolling down -> controlled hand-off to page scroll
-        // Absorb momentum so the user doesn't skip multiple sections
         e.preventDefault();
-        if (!locked.current) {
+        if (intentional && !locked.current) {
           locked.current = true;
           const heroHeight = el.offsetHeight;
           window.scrollTo({ top: heroHeight, behavior: "smooth" });
-          // Block window-level wheel events for the momentum drain period
-          const absorbMomentum = (ev: WheelEvent) => ev.preventDefault();
-          window.addEventListener("wheel", absorbMomentum, { passive: false });
-          setTimeout(() => {
-            window.removeEventListener("wheel", absorbMomentum);
-            locked.current = false;
-          }, 900);
+          setTimeout(() => { locked.current = false; }, 1000);
         }
       } else if (isGoingUp && currentPanel > 0 && isAtTop) {
         // At the absolute top of the page going up -> intercept and transition internally
@@ -100,6 +92,38 @@ export default function HeroStack() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [go]);
+
+  /* Snap scroll back to Y=0 or Y=heroHeight when scroll rests in the partial zone.
+     Touch devices only — Mac trackpad handles this naturally and must not be interrupted. */
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+
+    let snapTimer: ReturnType<typeof setTimeout>;
+
+    const onScrollSettle = () => {
+      const heroHeight = el.offsetHeight;
+      const y = window.scrollY;
+      if (y > 0 && y < heroHeight) {
+        window.scrollTo({ top: y < heroHeight / 2 ? 0 : heroHeight, behavior: "smooth" });
+      }
+    };
+
+    const scheduleSnap = () => {
+      clearTimeout(snapTimer);
+      snapTimer = setTimeout(onScrollSettle, 120);
+    };
+
+    window.addEventListener("scroll", scheduleSnap, { passive: true });
+    window.addEventListener("scrollend", onScrollSettle, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", scheduleSnap);
+      window.removeEventListener("scrollend", onScrollSettle);
+      clearTimeout(snapTimer);
+    };
+  }, []);
 
   /* Touch Swipes with strict boundary/top check */
   useEffect(() => {

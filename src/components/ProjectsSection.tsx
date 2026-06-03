@@ -9,12 +9,12 @@ const fadeUp: Variants = {
 const projects = [
   {
     image: "/ProjectLahore.png",
-    title: "Parkview City Lahore",
+    title: "PARKVIEW CITY LAHORE",
     subtitle: "A Place to Call Home",
   },
   {
     image: "/ProjectIslamabad.png",
-    title: "Parkview City Islamabad",
+    title: "PARKVIEW CITY ISLAMABAD",
     subtitle: "A Dream Place to Live In",
   },
 ];
@@ -49,10 +49,10 @@ export default function ProjectsSection() {
               key={i}
               variants={fadeUp} initial="hidden" whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
-              className="group flex flex-col border border-gray-200"
+              className="group flex flex-col overflow-hidden rounded-[15px] border border-gray-200 shadow-sm"
             >
               {/* Image */}
-              <div className="relative h-[55vh] overflow-hidden">
+              <div className="relative h-[70vh] overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.title}
@@ -63,10 +63,10 @@ export default function ProjectsSection() {
               {/* Text below image */}
               <div className="flex flex-col gap-1 bg-white px-8 py-6">
                 <h3 className="font-termina text-2xl font-normal text-pvc-navy">{p.title}</h3>
-                <p className="text-sm text-pvc-ink/50">{p.subtitle}</p>
+                <p className="font-roboto text-[11px] font-normal leading-[16.5px] tracking-[3.3px] uppercase text-pvc-ink/50">{p.subtitle}</p>
                 <div className="mt-4">
                   <a href="#"
-                    className="inline-block rounded-full border border-pvc-ink/25 px-12 py-3 font-display text-[10px] uppercase tracking-[0.32em] text-pvc-ink/60 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer">
+                    className="inline-block rounded-full border border-pvc-ink/25 px-12 py-3 font-roboto text-[10px] uppercase tracking-[0.32em] text-pvc-ink/60 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer">
                     Explore
                   </a>
                 </div>

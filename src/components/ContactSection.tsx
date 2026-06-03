@@ -100,49 +100,49 @@ export default function ContactSection() {
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="rounded-sm border border-gray-200 p-8">
+            className="rounded-[15px] border border-gray-200 p-10">
 
             <h3 className="mb-6 font-termina text-[20px] font-normal text-pvc-navy">Send an Enquiry</h3>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} autoComplete="off" className="flex flex-col gap-4">
               {/* Name + Phone */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
                   <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Full Name <span className="text-pvc-gold">*</span></label>
-                  <input name="name" required placeholder="Your name"
-                    className="rounded-sm border border-gray-200 px-3 py-2.5 text-sm text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
+                  <input name="name" required placeholder="Your name" autoComplete="off" data-lpignore="true"
+                    className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Phone <span className="text-pvc-gold">*</span></label>
-                  <input name="phone" required placeholder="+92 xxx xxxxxxx"
-                    className="rounded-sm border border-gray-200 px-3 py-2.5 text-sm text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
+                  <input name="phone" required placeholder="+92 xxx xxxxxxx" autoComplete="off" data-lpignore="true"
+                    className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
               </div>
 
               {/* Email */}
               <div className="flex flex-col gap-1.5">
                 <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Email Address</label>
-                <input name="email" type="email" placeholder="your@email.com"
-                  className="rounded-sm border border-gray-200 px-3 py-2.5 text-sm text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
+                <input name="email" type="email" placeholder="your@email.com" autoComplete="off" data-lpignore="true"
+                  className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Interested In */}
               <div className="flex flex-col gap-1.5">
                 <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">I'm Interested In</label>
-                <input name="interest" placeholder="e.g. Residential Plot, Apartment..."
-                  className="rounded-sm border border-gray-200 px-3 py-2.5 text-sm text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
+                <input name="interest" placeholder="e.g. Residential Plot, Apartment..." autoComplete="off" data-lpignore="true"
+                  className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-1.5">
                 <label className="font-roboto text-[10px] uppercase tracking-[0.18em] text-pvc-grey">Message</label>
-                <textarea name="message" rows={4} placeholder="Tell us about your requirements..."
-                  className="resize-none rounded-sm border border-gray-200 px-3 py-2.5 text-sm text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
+                <textarea name="message" rows={4} placeholder="Tell us about your requirements..." autoComplete="off"
+                  className="resize-none rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Submit */}
               <button type="submit" disabled={status === "sending"}
-                className="mt-2 flex w-full items-center justify-center gap-2.5 rounded-sm bg-pvc-gold py-4 font-roboto text-[12px] uppercase tracking-[0.28em] text-white transition-opacity duration-200 hover:opacity-90 disabled:opacity-60 cursor-pointer">
+                className="mt-2 flex h-[50px] w-full items-center justify-center gap-3 rounded-[30px] border border-pvc-ink/25 py-4 font-roboto text-[12px] uppercase tracking-[0.28em] text-pvc-ink/60 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold disabled:opacity-60 cursor-pointer">
                 <Send className="h-3.5 w-3.5" />
                 {status === "sending" ? "Sending…" : "Submit Enquiry"}
               </button>
