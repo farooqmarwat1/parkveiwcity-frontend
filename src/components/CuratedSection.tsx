@@ -40,6 +40,10 @@ export default function CuratedSection() {
   const fast = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -1500 : -750]);
   const ys = [slow, fast, slow, fast];
 
+  // Marquee fades out and blurs as the grid images scroll into view
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+  const marqueeFilter = useTransform(scrollYProgress, [0, 0.12], ["blur(0px)", "blur(10px)"]);
+
   return (
     <section className="relative bg-white pt-16 pb-0 sm:pt-32 -mb-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_60%_at_50%_0%,rgba(201,162,75,0.06),transparent_60%)]" />
@@ -50,7 +54,7 @@ export default function CuratedSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.4 }}
-        className="relative mx-auto flex flex-col items-center gap-10 px-6"
+        className="relative mx-auto flex flex-col items-center gap-4 px-6"
       >
         <p
           className="font-termina text-center font-medium uppercase tracking-[0.1em] text-[24px] sm:text-[32px] lg:text-[40px]"
@@ -70,7 +74,10 @@ export default function CuratedSection() {
         </p>
 
         {/* Marquee */}
-        <div className="w-full overflow-hidden mt-4 mb-10">
+        <motion.div
+          className="w-full overflow-hidden mt-10 mb-14"
+          style={{ opacity: marqueeOpacity, filter: marqueeFilter }}
+        >
           <div
             className="flex items-center gap-20"
             style={{ animation: "marquee 18s linear infinite", width: "max-content" }}
@@ -86,7 +93,7 @@ export default function CuratedSection() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Grid */}
