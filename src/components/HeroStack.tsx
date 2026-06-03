@@ -133,6 +133,10 @@ export default function HeroStack() {
 
       if (dy > 0 && currentPanel < heroes.length - 1) {
         go(1);
+      } else if (dy > 0 && currentPanel === heroes.length - 1 && isAtTop) {
+        // Last panel swipe down → scroll page to section below the hero
+        const heroHeight = ref.current?.offsetHeight ?? window.innerHeight;
+        window.scrollTo({ top: heroHeight, behavior: "smooth" });
       } else if (dy < 0 && currentPanel > 0 && isAtTop) {
         go(-1);
       }
