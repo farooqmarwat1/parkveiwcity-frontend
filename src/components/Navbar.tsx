@@ -62,8 +62,8 @@ export default function Navbar() {
             className={[
               "flex items-center gap-2 rounded-full border px-5 py-2 text-[10px] font-medium uppercase tracking-[0.18em] transition-all duration-300 cursor-pointer font-roboto whitespace-nowrap",
               solid
-                ? "border-pvc-ink/25 text-pvc-ink hover:border-pvc-green hover:bg-pvc-green hover:text-white"
-                : "border-white/40 text-white hover:border-white hover:bg-white/10",
+                ? "border-pvc-ink/25 text-pvc-ink/60 hover:border-pvc-gold hover:text-pvc-gold"
+                : "border-white/40 text-white/60 hover:border-pvc-gold hover:text-pvc-gold",
             ].join(" ")}>
             <Phone className="h-3 w-3" />
             Enquire Now

@@ -44,7 +44,7 @@ export default function CuratedSection() {
 
   // Reduced travel so the section doesn't leave a huge gap above the next section
   const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -80 : -200]);
-  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -220 : -520]);
+  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -300 : -750]);
   const ys = [fast, slow, fast];
 
   // Marquee completes fade BEFORE images reach it (progress ~0.16 < image overlap ~0.20)

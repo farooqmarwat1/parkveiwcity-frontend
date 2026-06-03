@@ -13,16 +13,16 @@ export default function Footer() {
     <footer className="bg-pvc-navy text-white">
 
       {/* Logo + description */}
-      <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-6 sm:px-10 text-center">
-        <img src="/whitelogo.png" alt="Parkview City" className="mx-auto h-16 w-auto object-contain" />
-        <p className="mt-3 font-roboto text-[16px] font-normal leading-[26px] tracking-[0.9px] text-center text-white/65 mx-auto w-full max-w-[767px]">
+      <div className="mx-auto max-w-[1200px] px-6 pt-8 pb-5 sm:pt-10 sm:pb-6 sm:px-10 text-center">
+        <img src="/whitelogo.png" alt="Parkview City" className="mx-auto h-12 sm:h-16 w-auto object-contain" />
+        <p className="mt-2 sm:mt-3 font-roboto text-[13px] sm:text-[16px] font-normal leading-[22px] sm:leading-[26px] tracking-[0.9px] text-center text-white/65 mx-auto w-full max-w-[767px]">
           Parkview City continues to set new benchmarks in secure, scenic, and modern real estate development in Pakistan.
         </p>
       </div>
 
       {/* Three columns */}
-      <div className="mx-auto max-w-[1200px] px-6 pb-8 sm:px-10">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+      <div className="mx-auto max-w-[1200px] px-6 pb-6 sm:pb-8 sm:px-10">
+        <div className="grid grid-cols-1 gap-6 sm:gap-10 md:grid-cols-3">
 
           {/* Contact Us */}
           <div>
@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-start md:items-center md:text-center">
             <p className="mb-6 font-roboto text-[10px] uppercase tracking-[0.28em] text-white/55">Quick Links</p>
             <ul className="flex flex-col gap-1.5">
               {quickLinks.map(link => (
