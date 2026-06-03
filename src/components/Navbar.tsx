@@ -43,9 +43,9 @@ export default function Navbar() {
           ))}
           <a href="#" className="flex cursor-pointer items-center px-5">
             <img
-              src={solid ? "/pvcblackblock.png" : "/logomonotone.png"}
+              src={solid ? "/blacklogo.png" : "/whitelogo.png"}
               alt="Park View City"
-              className={`h-[90px] w-auto object-contain transition-all duration-300 ${!solid ? "brightness-0 invert" : ""}`}
+              className="h-[90px] w-auto object-contain transition-all duration-300"
             />
           </a>
           {rightLinks.map(link => (
@@ -75,9 +75,9 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center">
           <img
-            src={solid ? "/pvcblackblock.png" : "/logomonotone.png"}
+            src={solid ? "/blacklogo.png" : "/whitelogo.png"}
             alt="Park View City"
-            className={`h-[52px] w-auto object-contain transition-all duration-300 ${!solid ? "brightness-0 invert" : ""}`}
+            className="h-[52px] w-auto object-contain transition-all duration-300"
           />
         </a>
 
