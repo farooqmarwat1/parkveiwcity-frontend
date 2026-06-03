@@ -42,18 +42,18 @@ export default function CuratedSection() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Mobile: dramatic ratio (fast ~3× slow) but smaller absolute values to reduce bottom gap
-  const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -120 : -300]);
-  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -360 : -750]);
+  // Mobile: 2.5× ratio gives clear speed difference; small absolute values reduce empty bottom space
+  const slow = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -80 : -300]);
+  const fast = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, isMobile ? -200 : -750]);
   const ys = [slow, fast, slow, fast];
 
-  // Marquee fades + blurs out early and completely (works for both mobile & web)
-  const marqueeOpacity = useTransform(scrollYProgress, [0.04, 0.14, 0.24], [1, 1, 0]);
-  const marqueeFilter  = useTransform(scrollYProgress, [0.04, 0.14, 0.24], ["blur(0px)", "blur(0px)", "blur(12px)"]);
+  // Marquee completes fade BEFORE images reach it (progress ~0.16 < image overlap ~0.20)
+  const marqueeOpacity = useTransform(scrollYProgress, [0.04, 0.1, 0.16], [1, 1, 0]);
+  const marqueeFilter  = useTransform(scrollYProgress, [0.04, 0.1, 0.16], ["blur(0px)", "blur(0px)", "blur(12px)"]);
 
   return (
-    // Increased mobile negative margin (-mb-[220px]) to pull StatsSection up and close the gap
-    <section className="relative bg-white pt-16 sm:pt-32 pb-0 -mb-[220px] sm:-mb-32 overflow-hidden">
+    // Moderate mobile negative margin: reduces gap without cutting images
+    <section className="relative bg-white pt-16 sm:pt-32 pb-0 -mb-[60px] sm:-mb-32 overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: `
             @keyframes marquee {
                 0% { transform: translateX(0); }
@@ -144,7 +144,7 @@ export default function CuratedSection() {
                       style={{ backgroundImage: `url('/${imageNumber}.png')` }}
                     />
                     <figcaption className="absolute inset-x-0 bottom-0 z-10 p-4 pt-10 bg-gradient-to-t from-black/60 to-transparent">
-                      <p className="text-white font-termina text-[10px] sm:text-[12px] uppercase tracking-wider font-medium">
+                      <p className="text-white text-[11px] sm:text-[13px] uppercase tracking-wider font-medium" style={{ fontFamily: "'TerminaTest', 'Barlow', sans-serif" }}>
                         {imageTitles[imageIndex] || "Parkview City"}
                       </p>
                     </figcaption>
