@@ -72,8 +72,8 @@ function Dropdown({ label, defaultValue, options, grow }: { label: string; defau
 
 export default function SearchBar() {
   return (
-    <div className="pointer-events-auto absolute inset-x-0 bottom-4 z-20 flex justify-center px-3 sm:px-5">
-      <div className="flex w-full max-w-[2500px] flex-col divide-y divide-white/10 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-2xl sm:flex-row sm:items-center sm:divide-x sm:divide-y-0 sm:rounded-full">
+    <div className="pointer-events-auto absolute inset-x-0 bottom-4 z-20 flex justify-center px-6 sm:px-16">
+      <div className="flex w-full max-w-[1200px] flex-col divide-y divide-white/10 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-2xl sm:flex-row sm:items-center sm:divide-x sm:divide-y-0 sm:rounded-full">
         {fields.map(f => (
           <Dropdown key={f.label} label={f.label} defaultValue={f.default} options={f.options} grow={f.grow} />
         ))}
