@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import PaymentPlanFamilySection from "./PaymentPlanFamilySection";
+import LahorePaymentPlanBlockSection from "./LahorePaymentPlanBlockSection";
 import { lahoreResidentialPlans, lahoreCommercialPlans } from "@/data/lahorePaymentPlans";
 
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -21,12 +21,11 @@ const residentialFamilies = byFamily(lahoreResidentialPlans);
 const commercialFamilies  = byFamily(lahoreCommercialPlans);
 
 /* ── Category divider ─────────────────────────────────────────── */
-function CategoryDivider({ label, commercial = false }: { label: string; commercial?: boolean }) {
+function CategoryDivider({ label }: { label: string }) {
   return (
     <div className="mx-auto flex max-w-[1120px] items-center gap-4 px-5 sm:px-8 md:px-10">
       <div className="h-px flex-1 bg-[#1D2D4E]/12" />
       <div className="flex items-center gap-2 rounded-full border border-[#C4973A]/60 bg-white px-5 py-2.5 shadow-sm">
-        {commercial && <span className="h-2 w-2 shrink-0 rounded-full bg-[#C4973A]" />}
         <span className="font-roboto text-[9px] font-medium uppercase tracking-[0.22em] text-[#1D2D4E]">
           {label}
         </span>
@@ -59,46 +58,26 @@ export default function LahorePaymentPlansPage() {
       ════════════════════════════════════════════════════════ */}
       <section
         id="payment-plans-hero"
-        className="figma-hero flex min-h-screen w-full items-center justify-center"
+        className="figma-hero flex min-h-screen w-full items-end justify-center px-6 pb-[6vh] text-center sm:px-10"
         style={{
           minHeight: "100svh",
-          backgroundImage: "url('/payment-plan-lahore-hero.webp')",
+          backgroundImage: "url('/lahore-Payments.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="figma-hero-overlay" />
 
-        <div className="figma-hero-content flex flex-col items-center px-5 text-center sm:px-8">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut }}
-            className="font-roboto text-[10px] font-light uppercase tracking-[0.32em] text-[#C4973A]"
-          >
-            ParkView City Lahore
-          </motion.p>
-
+        <div className="figma-hero-content flex flex-col items-center">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.08, ease: easeOut }}
-            className="mt-3 font-termina font-normal uppercase leading-tight text-white"
-            style={{ fontSize: "clamp(32px, 4vw, 52px)", letterSpacing: "0.04em" }}
+            transition={{ duration: 0.9, ease: easeOut }}
+            className="max-w-[90vw] text-center text-white font-termina hero-title-termina uppercase"
+            style={{ fontSize: "24px", fontWeight: 500, lineHeight: "88.2px", letterSpacing: "0px" }}
           >
             Payment Plans
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.18, ease: easeOut }}
-            className="mx-auto mt-4 max-w-[560px] font-roboto text-[14px] font-light leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.70)" }}
-          >
-            Detailed payment plan images for each block are displayed below.
-            Select a plan to view or download the PDF when available.
-          </motion.p>
         </div>
       </section>
 
@@ -106,7 +85,7 @@ export default function LahorePaymentPlansPage() {
           RESIDENTIAL DIVIDER
       ════════════════════════════════════════════════════════ */}
       <div className="mt-20 sm:mt-24">
-        <CategoryDivider label="Residential Plots — 7 Plans" />
+        <CategoryDivider label="RESIDENTIAL PLOTS" />
       </div>
 
       {/* ════════════════════════════════════════════════════════
@@ -115,12 +94,11 @@ export default function LahorePaymentPlansPage() {
       {Array.from(residentialFamilies.entries()).map(([family, plans]) => {
         const id = family.toLowerCase().replace(/\s+/g, "-") + "-plans";
         return (
-          <PaymentPlanFamilySection
+          <LahorePaymentPlanBlockSection
             key={family}
             id={id}
             heading={family}
             plans={plans}
-            columns={3}
           />
         );
       })}
@@ -129,21 +107,20 @@ export default function LahorePaymentPlansPage() {
           COMMERCIAL DIVIDER
       ════════════════════════════════════════════════════════ */}
       <div className="mt-16 sm:mt-20">
-        <CategoryDivider label="Commercial Plots — 2 Plans" commercial />
+        <CategoryDivider label="COMMERCIAL PLOTS" />
       </div>
 
       {/* ════════════════════════════════════════════════════════
           COMMERCIAL FAMILY SECTIONS
       ════════════════════════════════════════════════════════ */}
       {Array.from(commercialFamilies.entries()).map(([family, plans]) => {
-        const id = family.toLowerCase().replace(/\s+/g, "-") + "-commercial-plans";
+        const id = family.toLowerCase().replace(/\s+/g, "-") + "-plans";
         return (
-          <PaymentPlanFamilySection
+          <LahorePaymentPlanBlockSection
             key={family}
             id={id}
             heading={family}
             plans={plans}
-            columns={2}
           />
         );
       })}
