@@ -12,6 +12,7 @@ import ContactPage from "@/components/ContactPage";
 import AboutPage from "@/components/AboutPage";
 import OurAchievementsSection from "@/components/OurAchievementsSection";
 import UkPage from "@/components/UkPage";
+import SharedEnquirySection from "@/components/SharedEnquirySection";
 
 import LahoreHeroStack from "@/components/lahore/LahoreHeroStack";
 import LahoreAboutSection from "@/components/lahore/LahoreAboutSection";
@@ -102,6 +103,7 @@ function LahoreHomePage() {
       <LahorePropertiesSection onOpenProperty={setSelectedProperty} />
       <LahoreAmenitiesPreviewSection />
       <LahoreVirtualTourSection />
+      <SharedEnquirySection id="lahore-enquiry" />
 
       {activeDetail && (
         <PropertyDetailOverlay
@@ -160,6 +162,7 @@ function IslamabadHomePage() {
       <IslamabadPropertiesSection onOpenProperty={setSelectedProperty} />
       <IslamabadAmenitiesPreviewSection />
       <IslamabadVirtualTourSection />
+      <SharedEnquirySection id="islamabad-enquiry" />
 
       {activeDetail && (
         <PropertyDetailOverlay

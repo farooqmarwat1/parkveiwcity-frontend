@@ -15,6 +15,7 @@ import {
   aboutInnovationFeatures,
   type ValueItem,
 } from "@/data/aboutData";
+import SharedEnquirySection from "@/components/SharedEnquirySection";
 
 /* ── Animation ───────────────────────────────────────────────── */
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -811,6 +812,8 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           12 ▸ FINAL CTA
       ═══════════════════════════════ */}
+      <SharedEnquirySection id="about-enquiry" />
+
       <section
         id="about-cta"
         className="relative overflow-hidden py-20 sm:py-28"

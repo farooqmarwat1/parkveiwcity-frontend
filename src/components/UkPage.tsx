@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight, ChevronDown, ExternalLink, Phone } from "lucide-react";
 import ExploreButton from "@/components/ExploreButton";
+import SharedEnquirySection from "@/components/SharedEnquirySection";
 import {
   ukCta,
   ukFaqItems,
@@ -457,6 +458,8 @@ export default function UkPage() {
       </section>
 
       {/* ── CTA ── */}
+      <SharedEnquirySection id="uk-enquiry" />
+
       <section
         id="uk-cta"
         className="relative flex min-h-[520px] items-center justify-center overflow-hidden px-6 py-24 text-center sm:px-10 lg:px-20"
