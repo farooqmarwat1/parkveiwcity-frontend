@@ -82,7 +82,7 @@ export default function LahoreAmenitiesPreviewSection() {
           className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 border-b border-gray-100 pb-8"
         >
           <div className="flex flex-col items-start max-w-[480px]">
-            <span className="text-[#58595B] text-[10px] font-normal tracking-[3.3px] uppercase">
+            <span className="font-roboto text-[10px] font-normal tracking-[0.9px] uppercase text-[#58595B]">
               Amenities in Lahore
             </span>
             <h2 
@@ -97,7 +97,7 @@ export default function LahoreAmenitiesPreviewSection() {
             <button
               type="button"
               onClick={() => navigate("/lahore/amenities")}
-              className="flex h-[43px] w-[201px] items-center justify-center rounded-full border border-[#C4973A] font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#C4973A] transition-all duration-300 hover:bg-[#C4973A] hover:text-white cursor-pointer"
+              className="flex min-h-11 min-w-[201px] items-center justify-center rounded-full border border-black/15 bg-white px-8 font-roboto text-[11px] font-normal uppercase tracking-[0.22em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               View All Amenities
             </button>

@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.85, ease: easeOut } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: easeOut } },
 };
 
 interface Property {
@@ -14,11 +14,10 @@ interface Property {
   meta: string;
   title: string;
   desc: string;
-  price: string;
   id?: string;
 }
 
-function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Property & { onOpen?: () => void }) {
+function PropertyCard({ image, badge, meta, title, desc, id, onOpen }: Property & { onOpen?: () => void }) {
   const clickable = typeof onOpen === "function";
   return (
     <div
@@ -32,8 +31,6 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
       onClick={clickable ? onOpen : undefined}
       onKeyDown={clickable ? e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen?.(); } } : undefined}
     >
-
-      {/* Image */}
       <div className="relative h-[200px] shrink-0 overflow-hidden">
         <img
           src={image}
@@ -41,21 +38,14 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
           className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <span className="absolute left-3.5 top-3.5 rounded-full bg-[#C4973A]/90 px-3 py-1 font-roboto text-[8px] font-medium uppercase tracking-[0.15em] text-white backdrop-blur-sm">
-          {badge}
-        </span>
       </div>
 
-      {/* Body */}
       <div className="flex flex-1 flex-col p-6">
-        <span className="font-roboto text-[9px] font-light uppercase tracking-[0.12em] text-[#58595B]">
+        <span className="block min-h-[13px] font-roboto text-[9px] font-light uppercase tracking-[0.12em] text-[#58595B]">
           {meta}
         </span>
 
-        <h3
-          className="mt-1.5 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]"
-          style={{ letterSpacing: "0.9px" }}
-        >
+        <h3 className="mt-1.5 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]" style={{ letterSpacing: "0.9px" }}>
           {title}
         </h3>
 
@@ -63,22 +53,16 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
           {desc}
         </p>
 
-        {/* Footer row */}
         <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-5">
           <div className="flex flex-col">
-            <span className="font-roboto text-[8px] font-light uppercase tracking-[0.1em] text-[#58595B]/60">
-              Starting From
-            </span>
-            <span className="mt-0.5 font-termina text-[15px] font-normal text-[#1D2D4E]">
-              {price}
-            </span>
+            <span className="mt-0.5 font-termina text-[15px] font-normal text-[#1D2D4E]" />
           </div>
 
           <button
             type="button"
             aria-label={`View details for ${title}`}
             onClick={e => { e.stopPropagation(); onOpen?.(); }}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C4973A] text-[#C4973A] transition-all duration-300 group-hover:bg-[#C4973A] group-hover:text-white cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#58595B]/40 text-[#58595B] transition-all duration-300 group-hover:border-[#C4973A] group-hover:text-[#C4973A] cursor-pointer"
           >
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
           </button>
@@ -90,67 +74,79 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
 
 const residential: Property[] = [
   {
-    id:    "tulip-overseas-block",
-    image: "/Image (Tulip Overseas Block).webp",
+    id: "tulip-overseas-block",
+    image: "/LAHORE-first_Section.webp",
     badge: "KEY-25 Deal",
-    meta:  "Possession on 25% DP • 5 Marla, 10 Marla, 1 Kanal",
+    meta: "Possession on 25% DP - 5 Marla, 10 Marla, 1 Kanal",
     title: "Tulip Overseas Block",
-    desc:  "A premium residential destination designed for overseas Pakistanis, offering flexible payment plans with possession on just 25% down payment.",
-    price: "PKR 90 Lac",
+    desc: "A premium residential destination designed for overseas Pakistanis, offering flexible payment plans with possession on just 25% down payment.",
   },
   {
-    id:    "crystal-block",
-    image: "/Image (Crystal Block).webp",
+    id: "crystal-block",
+    image: "/LAHORE-PROJECT2.webp",
     badge: "Pre-Launch Offer",
-    meta:  "On Cash • 5 Marla, 10 Marla, 1 Kanal",
+    meta: "On Cash - 5 Marla, 10 Marla, 1 Kanal",
     title: "Crystal Block",
-    desc:  "An exclusive new block offering luxury living at a pre-launch price — secure your plot now at the most competitive rates before the official launch.",
-    price: "PKR 60 Lac",
+    desc: "An exclusive new block offering luxury living at a pre-launch price. Secure your plot before the official launch.",
   },
   {
-    id:    "jade-extension",
-    image: "/Image (JADE Extension).webp",
+    id: "jade-extension",
+    image: "/LAHORE-PROJECTS.webp",
     badge: "Ready for Possession",
-    meta:  "On Cash • 5 Marla",
+    meta: "On Cash - 5 Marla",
     title: "JADE Extension",
-    desc:  "Plots ready for possession — move in today. JADE Extension offers immediate access to the full community with all amenities operational.",
-    price: "PKR 75 Lac",
+    desc: "Plots ready for possession. JADE Extension offers immediate access to the full community with all amenities operational.",
   },
 ];
 
 const commercial: Property[] = [
   {
-    id:    "rose-market",
+    id: "tulip-commercial",
+    image: "/LAHORE-PROJECT2.webp",
+    badge: "Commercial",
+    meta: "Tulip Commercial, ParkView City Lahore",
+    title: "Tulip Commercial",
+    desc: "A planned retail and business address positioned close to residential movement, designed for investor visibility and community access.",
+  },
+  {
+    id: "broadway-commercial",
+    image: "/LAHORE-PROJECTS.webp",
+    badge: "Premium Phase",
+    meta: "Commercial Hub, ParkView City Lahore",
+    title: "Broadway Commercial",
+    desc: "A thriving business destination with wide boulevards and a high-density shopping layout designed to attract strong local footfall.",
+  },
+  {
+    id: "the-walk-ii",
+    image: "/LAHORE-Last_Section.webp",
+    badge: "Retail Avenue",
+    meta: "The Walk II, ParkView City Lahore",
+    title: "The Walk II",
+    desc: "An extension of the walkable commercial experience, planned around premium retail frontage, dining activity, and outdoor movement.",
+  },
+  {
+    id: "the-walk",
+    image: "/LAHORE-first_Section.webp",
+    badge: "Retail Block",
+    meta: "The Walk, ParkView City Lahore",
+    title: "The Walk",
+    desc: "Ultra-luxury retail walk inspired by modern architecture with spacious outdoor promenades and mixed-use retail spaces.",
+  },
+  {
+    id: "rose-market",
     image: "/Rose%20Market%20hero.webp",
     badge: "Limited Inventory",
-    meta:  "Rose Market, ParkView City Lahore",
+    meta: "Rose Market, ParkView City Lahore",
     title: "Rose Market",
-    desc:  "A boutique commercial development with limited inventory, first-floor availability, and special pricing opportunities.",
-    price: "Special Pricing",
+    desc: "A boutique commercial development with limited inventory, first-floor availability, and special pricing opportunities.",
   },
   {
-    image: "/4.png",
-    badge: "Premium Phase",
-    meta:  "Commercial Hub • 4 Marla, 8 Marla",
-    title: "Broadway Commercial",
-    desc:  "A thriving business destination with wide boulevards and a high-density shopping layout designed to attract national and international footfall.",
-    price: "PKR 1.8 Crore",
-  },
-  {
-    image: "/5.png",
-    badge: "Hot Location",
-    meta:  "High ROI • 5 Marla, 10 Marla",
-    title: "Downtown Commercial",
-    desc:  "Premium commercial area designed to accommodate national and international brands with exceptional visibility and access.",
-    price: "PKR 2.2 Crore",
-  },
-  {
-    image: "/6.png",
-    badge: "Retail Block",
-    meta:  "Shop & Office Units • Multi-size",
-    title: "The Walk Commercial",
-    desc:  "Ultra-luxury retail walk inspired by modern architecture with spacious outdoor promenades and mixed-use retail spaces.",
-    price: "PKR 95 Lac",
+    id: "commercial-plots",
+    image: "/ProjectLahore.png",
+    badge: "Commercial Plots",
+    meta: "Multi-size Commercial Inventory",
+    title: "Commercial Plots",
+    desc: "Flexible commercial plot options for businesses and investors seeking long-term presence inside ParkView City Lahore.",
   },
 ];
 
@@ -163,7 +159,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
 
   return (
     <>
-      {/* Dual-ID anchor: #properties and #payment-plans both reach this section */}
       <div id="payment-plans" style={{ scrollMarginTop: "100px" }} />
 
       <section
@@ -172,8 +167,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
         style={{ scrollMarginTop: "100px" }}
       >
         <div className="mx-auto flex max-w-[1280px] flex-col items-center">
-
-          {/* Eyebrow */}
           <motion.span
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="font-roboto text-[10px] font-normal uppercase tracking-[0.33em] text-[#58595B]"
@@ -181,7 +174,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
             ParkView City Lahore
           </motion.span>
 
-          {/* Heading */}
           <motion.h2
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="mt-3 text-center font-termina text-[28px] font-normal uppercase leading-tight tracking-[0.06em] text-[#1D2D4E] sm:text-[40px]"
@@ -189,7 +181,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
             Explore Properties
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="mt-4 max-w-[680px] text-center font-roboto text-[15px] font-light leading-relaxed tracking-[0.04em] text-[#58595B]"
@@ -198,7 +189,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
             master-planned blocks offering unmatched architectural standards.
           </motion.p>
 
-          {/* Tab control */}
           <motion.div
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="mt-10 flex items-center"
@@ -237,14 +227,13 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
             </button>
           </motion.div>
 
-          {/* Cards */}
           <div
             id={tab === "residential" ? "tab-panel-residential" : "tab-panel-commercial"}
             role="tabpanel"
             aria-label={tab === "residential" ? "Residential properties" : "Commercial properties"}
             className="mt-12 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            {(tab === "residential" ? residential : commercial.filter(p => p.id === "rose-market")).map(p => (
+            {(tab === "residential" ? residential : commercial).map(p => (
               <PropertyCard
                 key={p.title}
                 {...p}
@@ -252,7 +241,6 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
               />
             ))}
           </div>
-
         </div>
       </section>
     </>

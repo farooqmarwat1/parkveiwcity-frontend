@@ -26,6 +26,17 @@ export default function LahoreHeroStack() {
         className="absolute inset-0 h-full w-full object-cover object-center"
         draggable={false}
       />
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        src="/Lahore-hero_Section.mp4"
+        poster="/hero video image.webp"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="ParkView City Lahore aerial video"
+      />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/80" />
 
@@ -35,12 +46,6 @@ export default function LahoreHeroStack() {
         animate="show"
         className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-[6vh] text-center"
       >
-        <motion.p variants={item}
-          className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.32em] text-pvc-gold-light"
-        >
-          ParkView City Lahore
-        </motion.p>
-
         <motion.h1
           variants={item}
           className="max-w-[90vw] text-center text-white font-termina hero-title-termina uppercase"
@@ -49,7 +54,7 @@ export default function LahoreHeroStack() {
           Where Lifestyle Meets Luxury
         </motion.h1>
 
-        <motion.div variants={item} className="mt-4">
+        <motion.div variants={item} className="mt-6 sm:mt-0">
           <span className="font-roboto">
             <ExploreButton label="Explore" variant="stats" href="#about" />
           </span>

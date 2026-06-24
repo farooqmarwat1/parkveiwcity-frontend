@@ -104,7 +104,7 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
         aria-labelledby={data.titleId}
         className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto overscroll-contain"
         style={{ background: "rgba(0,0,0,0.70)" }}
-        onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+        onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
       >
         {/* White detail container */}
         <div
@@ -403,9 +403,9 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
               type="button"
               onClick={onEnquire}
               className="flex h-[48px] items-center justify-center rounded-full
-                         bg-[#1D2D4E] px-8 font-roboto text-[11px] uppercase
-                         tracking-[0.22em] text-white transition-all duration-300
-                         hover:bg-[#1D2D4E]/85 focus-visible:outline focus-visible:outline-2
+                         border border-[#C4973A] bg-white px-8 font-roboto text-[11px] uppercase
+                         tracking-[0.22em] text-[#C4973A] transition-all duration-300
+                         hover:bg-[#C4973A]/8 focus-visible:outline focus-visible:outline-2
                          focus-visible:outline-[#C4973A] cursor-pointer sm:min-w-[180px]"
             >
               Enquire Now

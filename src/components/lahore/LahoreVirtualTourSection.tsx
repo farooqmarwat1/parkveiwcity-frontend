@@ -43,7 +43,7 @@ export default function LahoreVirtualTourSection() {
           href="https://pvvtour.com/lhr/index.html"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 flex h-[47px] w-[171px] items-center justify-center rounded-full border border-[#C4973A] bg-white/10 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#C4973A] backdrop-blur-sm transition-all duration-300 hover:bg-[#C4973A] hover:text-white cursor-pointer"
+          className="mt-7 flex min-h-11 min-w-[171px] items-center justify-center rounded-full border border-white/35 bg-black/20 px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
         >
           View Tour
         </a>

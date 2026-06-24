@@ -22,7 +22,17 @@ import LahoreVirtualTourSection from "@/components/lahore/LahoreVirtualTourSecti
 import LahoreAmenitiesPage from "@/components/lahore/LahoreAmenitiesPage";
 import LahorePaymentPlansPage from "@/components/lahore/LahorePaymentPlansPage";
 import PropertyDetailOverlay from "@/components/lahore/PropertyDetailOverlay";
-import { TULIP_DETAIL, CRYSTAL_DETAIL, JADE_DETAIL, ROSE_MARKET_DETAIL } from "@/data/lahoreProperties";
+import {
+  TULIP_DETAIL,
+  CRYSTAL_DETAIL,
+  JADE_DETAIL,
+  ROSE_MARKET_DETAIL,
+  TULIP_COMMERCIAL_DETAIL,
+  BROADWAY_COMMERCIAL_DETAIL,
+  THE_WALK_II_DETAIL,
+  THE_WALK_DETAIL as LAHORE_THE_WALK_DETAIL,
+  COMMERCIAL_PLOTS_DETAIL,
+} from "@/data/lahoreProperties";
 
 import IslamabadHeroStack from "@/components/islamabad/IslamabadHeroStack";
 import IslamabadAboutSection from "@/components/islamabad/IslamabadAboutSection";
@@ -77,6 +87,18 @@ function LahoreHomePage() {
     document.body.style.overflow = "";
   }
 
+  function scrollToLahoreProjects() {
+    window.requestAnimationFrame(() => {
+      document.getElementById("properties")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function closeLahoreOverlay() {
+    clearScrollLock();
+    setSelectedProperty(null);
+    scrollToLahoreProjects();
+  }
+
   function handleEnquire() {
     clearScrollLock();
     setSelectedProperty(null);
@@ -94,6 +116,11 @@ function LahoreHomePage() {
     selectedProperty === "crystal-block"        ? CRYSTAL_DETAIL :
     selectedProperty === "jade-extension"       ? JADE_DETAIL :
     selectedProperty === "rose-market"          ? ROSE_MARKET_DETAIL :
+    selectedProperty === "tulip-commercial"     ? TULIP_COMMERCIAL_DETAIL :
+    selectedProperty === "broadway-commercial"  ? BROADWAY_COMMERCIAL_DETAIL :
+    selectedProperty === "the-walk-ii"          ? THE_WALK_II_DETAIL :
+    selectedProperty === "the-walk"             ? LAHORE_THE_WALK_DETAIL :
+    selectedProperty === "commercial-plots"     ? COMMERCIAL_PLOTS_DETAIL :
     null;
 
   return (
@@ -108,7 +135,7 @@ function LahoreHomePage() {
       {activeDetail && (
         <PropertyDetailOverlay
           data={activeDetail}
-          onClose={() => setSelectedProperty(null)}
+          onClose={closeLahoreOverlay}
           onEnquire={handleEnquire}
           onPaymentPlans={handlePaymentPlans}
         />

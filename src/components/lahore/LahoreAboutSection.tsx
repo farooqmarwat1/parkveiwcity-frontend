@@ -50,14 +50,14 @@ export default function LahoreAboutSection() {
             <button
               type="button"
               onClick={() => scrollTo("#properties")}
-              className="flex h-[43px] w-[160px] items-center justify-center rounded-full border border-[#C4973A] font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#C4973A] transition-all duration-300 hover:bg-[#C4973A] hover:text-white cursor-pointer"
+              className="flex min-h-11 min-w-[172px] items-center justify-center rounded-full border border-black/15 bg-white px-8 font-roboto text-[11px] font-normal uppercase tracking-[0.22em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               View Properties
             </button>
             <button
               type="button"
               onClick={() => scrollTo("#amenities")}
-              className="flex h-[43px] w-[140px] items-center justify-center rounded-full border border-[#C4973A] font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#C4973A] transition-all duration-300 hover:bg-[#C4973A] hover:text-white cursor-pointer"
+              className="flex min-h-11 min-w-[172px] items-center justify-center rounded-full border border-black/15 bg-white px-8 font-roboto text-[11px] font-normal uppercase tracking-[0.22em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               Amenities
             </button>
