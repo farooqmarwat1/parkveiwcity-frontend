@@ -30,7 +30,7 @@ import IslamabadAmenitiesPreviewSection from "@/components/islamabad/IslamabadAm
 import IslamabadVirtualTourSection from "@/components/islamabad/IslamabadVirtualTourSection";
 import IslamabadAmenitiesPage from "@/components/islamabad/IslamabadAmenitiesPage";
 import IslamabadPaymentPlansPage from "@/components/islamabad/IslamabadPaymentPlansPage";
-import { J_BLOCK_DETAIL, D_BLOCK_DETAIL, OVERSEAS_PREMIUM_DETAIL, AB_BLOCK_DETAIL, TERRACE_C_BLOCK_DETAIL, E_BLOCK_DETAIL, F_BLOCK_DETAIL, H_BLOCK_DETAIL, BOULEVARD_DETAIL } from "@/data/islamabadProperties";
+import { J_BLOCK_DETAIL, D_BLOCK_DETAIL, OVERSEAS_PREMIUM_DETAIL, AB_BLOCK_DETAIL, TERRACE_C_BLOCK_DETAIL, E_BLOCK_DETAIL, F_BLOCK_DETAIL, H_BLOCK_DETAIL, BOULEVARD_DETAIL, THE_WALK_DETAIL, DOWNTOWN_ISLAMABAD_DETAIL, OVERSEAS_COMMERCIAL_DETAIL, FOUNTAIN_VIEW_DETAIL } from "@/data/islamabadProperties";
 
 /* ── Scroll to top on route change (skip if hash is present) ──── */
 function ScrollToTop() {
@@ -138,15 +138,19 @@ function IslamabadHomePage() {
   }
 
   const activeDetail =
-    selectedProperty === "j-block-privilege" ? J_BLOCK_DETAIL :
-    selectedProperty === "d-block"           ? D_BLOCK_DETAIL :
-    selectedProperty === "overseas-premium"  ? OVERSEAS_PREMIUM_DETAIL :
-    selectedProperty === "ab-block"          ? AB_BLOCK_DETAIL :
-    selectedProperty === "terrace-c-block"   ? TERRACE_C_BLOCK_DETAIL :
-    selectedProperty === "e-block"           ? E_BLOCK_DETAIL :
-    selectedProperty === "f-block"           ? F_BLOCK_DETAIL :
-    selectedProperty === "h-block"           ? H_BLOCK_DETAIL :
-    selectedProperty === "boulevard"         ? BOULEVARD_DETAIL :
+    selectedProperty === "j-block-privilege"   ? J_BLOCK_DETAIL :
+    selectedProperty === "d-block"             ? D_BLOCK_DETAIL :
+    selectedProperty === "overseas-premium"    ? OVERSEAS_PREMIUM_DETAIL :
+    selectedProperty === "ab-block"            ? AB_BLOCK_DETAIL :
+    selectedProperty === "terrace-c-block"     ? TERRACE_C_BLOCK_DETAIL :
+    selectedProperty === "e-block"             ? E_BLOCK_DETAIL :
+    selectedProperty === "f-block"             ? F_BLOCK_DETAIL :
+    selectedProperty === "h-block"             ? H_BLOCK_DETAIL :
+    selectedProperty === "boulevard"           ? BOULEVARD_DETAIL :
+    selectedProperty === "fountain-view-residences" ? FOUNTAIN_VIEW_DETAIL :
+    selectedProperty === "the-walk"                 ? THE_WALK_DETAIL :
+    selectedProperty === "downtown-islamabad"  ? DOWNTOWN_ISLAMABAD_DETAIL :
+    selectedProperty === "overseas-commercial" ? OVERSEAS_COMMERCIAL_DETAIL :
     null;
 
   return (

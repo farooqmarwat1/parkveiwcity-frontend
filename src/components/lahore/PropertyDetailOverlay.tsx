@@ -9,6 +9,21 @@ export interface GalleryImage {
   alt: string;
 }
 
+export interface PaymentRow {
+  category: string;
+  total: string;
+  downPayment: string;
+  balance: string;
+  installments: string;
+}
+
+export interface PaymentTable {
+  title: string;
+  subtitle?: string;
+  note?: string;
+  rows: PaymentRow[];
+}
+
 export interface PropertyDetailData {
   id: string;
   titleId: string;
@@ -24,6 +39,7 @@ export interface PropertyDetailData {
   galleryAriaLabel: string;
   paymentPlanRoute: string;
   closeAriaLabel: string;
+  paymentTables?: PaymentTable[];
 }
 
 interface Props {
@@ -41,18 +57,11 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
   const openerRef   = useRef<HTMLElement | null>(null);
   const galleryLen  = data.gallery.length;
 
-  /* ── Body scroll lock ──────────────────────────────────────── */
+  /* ── Restore focus on close ─────────────────────────────────── */
   useEffect(() => {
     openerRef.current = document.activeElement as HTMLElement;
-    // overflow:hidden on both elements locks scrolling without changing
-    // scroll position — no position:fixed, no scroll restore needed.
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-    closeRef.current?.focus();
     return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      setTimeout(() => openerRef.current?.focus(), 50);
+      setTimeout(() => openerRef.current?.focus({ preventScroll: true }), 50);
     };
   }, []);
 
@@ -306,41 +315,81 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
           </section>
 
           {/* ════════════════════════════════════════════════
-              PAYMENT PLAN — white background
+              PAYMENT PLAN — inline tables or CTA
           ════════════════════════════════════════════════ */}
           <section className="bg-white px-5 py-8 sm:px-8 md:px-10">
-            <div
-              className="flex flex-col items-center rounded-[12px] px-8 py-8 text-center"
-              style={{
-                border: "1.5px dashed rgba(196,151,58,0.45)",
-                background: "#FFFFFF",
-              }}
-            >
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-full"
-                style={{ background: "rgba(196,151,58,0.12)" }}
-              >
-                <CalendarDays className="h-5 w-5 text-[#C4973A]" strokeWidth={1.5} />
+            {data.paymentTables && data.paymentTables.length > 0 ? (
+              <div className="flex flex-col gap-8">
+                {data.paymentTables.map((table, ti) => (
+                  <div key={ti}>
+                    <div className="mb-4 text-center">
+                      <h3 className="font-roboto text-[18px] font-semibold uppercase tracking-[0.08em] text-[#1D2D4E]">
+                        {table.title}
+                      </h3>
+                      {table.subtitle && (
+                        <p className="mt-0.5 font-roboto text-[11px] font-light text-[#58595B]">{table.subtitle}</p>
+                      )}
+                      {table.note && (
+                        <p className="mt-1 font-roboto text-[10px] font-medium uppercase tracking-[0.12em] text-[#C4973A]">{table.note}</p>
+                      )}
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse font-roboto text-[13px]">
+                        <thead>
+                          <tr className="border-b-2 border-[#1D2D4E]/20">
+                            <th className="px-4 py-3 text-left font-roboto text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1D2D4E]">Plot Size / Category</th>
+                            {["Total Price", "Down Payment 25%", "Balance Payment", "6 Quarterly Installments"].map(h => (
+                              <th key={h} className="px-4 py-3 text-right font-roboto text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1D2D4E]">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {table.rows.map((row, ri) => (
+                            <tr key={ri} className={ri % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                              <td className="px-4 py-3 font-roboto text-[13px] font-medium text-[#1D2D4E]">{row.category}</td>
+                              <td className="px-4 py-3 text-right font-roboto text-[13px] text-black">{row.total}</td>
+                              <td className="px-4 py-3 text-right font-roboto text-[13px] text-black">{row.downPayment}</td>
+                              <td className="px-4 py-3 text-right font-roboto text-[13px] text-black">{row.balance}</td>
+                              <td className="px-4 py-3 text-right font-roboto text-[13px] text-black">{row.installments}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <p className="mt-4 font-roboto text-[9px] font-light uppercase tracking-[0.28em] text-[#C4973A]">
-                Payment Plan
-              </p>
-
-              <p className="mt-2 font-roboto text-[13px] font-light leading-relaxed text-[#58595B] md:text-[14px]">
-                Detailed payment plan images for this block are available on the{" "}
-                <button
-                  type="button"
-                  onClick={() => onPaymentPlans(data.paymentPlanRoute)}
-                  className="font-medium text-[#1D2D4E] underline underline-offset-2
-                             hover:text-[#C4973A] transition-colors cursor-pointer
-                             focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C4973A]"
+            ) : (
+              <div
+                className="flex flex-col items-center rounded-[12px] px-8 py-8 text-center"
+                style={{ border: "1.5px dashed rgba(196,151,58,0.45)", background: "#FFFFFF" }}
+              >
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-full"
+                  style={{ background: "rgba(196,151,58,0.12)" }}
                 >
-                  Payment Plans page
-                </button>
-                .
-              </p>
-            </div>
+                  <CalendarDays className="h-5 w-5 text-[#C4973A]" strokeWidth={1.5} />
+                </div>
+                <p className="mt-4 font-roboto text-[9px] font-light uppercase tracking-[0.28em] text-[#C4973A]">
+                  Payment Plan
+                </p>
+                <p className="mt-2 font-roboto text-[13px] font-light leading-relaxed text-[#58595B] md:text-[14px]">
+                  Detailed payment plan images for this block are available on the{" "}
+                  <button
+                    type="button"
+                    onClick={() => onPaymentPlans(data.paymentPlanRoute)}
+                    className="font-medium text-[#1D2D4E] underline underline-offset-2
+                               hover:text-[#C4973A] transition-colors cursor-pointer
+                               focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C4973A]"
+                  >
+                    Payment Plans page
+                  </button>
+                  .
+                </p>
+              </div>
+            )}
           </section>
 
           {/* ════════════════════════════════════════════════

@@ -73,7 +73,7 @@ export default function IslamabadAmenitiesPreviewSection() {
   return (
     <section
       id="amenities"
-      className="bg-[#FFFFFF] py-20 px-6 sm:py-28 sm:px-10 lg:px-20"
+      className="bg-[#FFFFFF] pt-12 pb-20 px-6 sm:pt-16 sm:pb-28 sm:px-10 lg:px-20"
       style={{ scrollMarginTop: "100px" }}
     >
       <div className="mx-auto max-w-[1280px] flex flex-col">
@@ -85,7 +85,7 @@ export default function IslamabadAmenitiesPreviewSection() {
           className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 border-b border-gray-100 pb-8"
         >
           <div className="flex flex-col items-start max-w-[480px]">
-            <span className="text-[#58595B] text-[10px] font-normal tracking-[3.3px] uppercase">
+            <span className="font-roboto text-[#58595B] text-[10px] font-normal tracking-[3.3px] uppercase">
               Amenities in Islamabad
             </span>
             <h2
@@ -100,7 +100,7 @@ export default function IslamabadAmenitiesPreviewSection() {
             <button
               type="button"
               onClick={() => navigate("/islamabad/amenities")}
-              className="flex h-[43px] w-[201px] items-center justify-center rounded-full border border-[#C4973A] font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#C4973A] transition-all duration-300 hover:bg-[#C4973A] hover:text-white cursor-pointer"
+              className="flex h-[44px] min-w-[160px] items-center justify-center gap-2 rounded-full border border-[#58595B]/40 px-8 font-roboto text-[12px] font-medium leading-[18px] tracking-[3.3px] uppercase text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               View All Amenities
             </button>

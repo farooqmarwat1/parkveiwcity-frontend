@@ -55,7 +55,7 @@ export default function IslamabadPaymentPlansPage() {
         className="figma-hero flex min-h-screen w-full items-center justify-center"
         style={{
           minHeight: "100svh",
-          backgroundImage: "url('/ProjectIslamabad.png')",
+          backgroundImage: "url('/PaymentPlansHeroSection-isb.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -63,15 +63,6 @@ export default function IslamabadPaymentPlansPage() {
         <div className="figma-hero-overlay" />
 
         <div className="figma-hero-content flex flex-col items-center px-5 text-center sm:px-8">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut }}
-            className="font-roboto text-[10px] font-light uppercase tracking-[0.32em] text-[#C4973A]"
-          >
-            ParkView City Islamabad
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,17 +72,6 @@ export default function IslamabadPaymentPlansPage() {
           >
             Payment Plans
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.18, ease: easeOut }}
-            className="mx-auto mt-4 max-w-[560px] font-roboto text-[14px] font-light leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.70)" }}
-          >
-            Detailed payment plan images for each block are displayed below.
-            Select a plan to view or download the PDF when available.
-          </motion.p>
         </div>
       </section>
 

@@ -39,9 +39,6 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
           className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <span className="absolute left-3.5 top-3.5 rounded-full bg-[#C4973A]/90 px-3 py-1 font-roboto text-[8px] font-medium uppercase tracking-[0.15em] text-white backdrop-blur-sm">
-          {badge}
-        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
@@ -71,7 +68,7 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
             type="button"
             aria-label={`View details for ${title}`}
             onClick={e => { e.stopPropagation(); onOpen?.(); }}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C4973A] text-[#C4973A] transition-all duration-300 group-hover:bg-[#C4973A] group-hover:text-white cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#58595B]/40 text-[#58595B] transition-all duration-300 group-hover:border-[#C4973A] group-hover:text-[#C4973A] cursor-pointer"
           >
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
           </button>
@@ -85,111 +82,123 @@ function PropertyCard({ image, badge, meta, title, desc, price, id, onOpen }: Pr
 const residential: Property[] = [
   {
     id:    "ab-block",
-    image: "/hero video image.webp",
+    image: "/Block_AB.png",
     badge: "Residential Plots",
     meta:  "5 Marla, 10 Marla, 1 Kanal",
     title: "A & B Block",
     desc:  "One of the earliest and most established residential zones in ParkView City Islamabad, offering well-connected plots in a mature community setting.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "terrace-c-block",
-    image: "/Crystal Block Gallery (1).webp",
+    image: "/Terrace_Block_C.png",
     badge: "Residential Plots",
     meta:  "10 Marla, 1 Kanal",
     title: "Terrace C Block",
     desc:  "Terrace-facing residential plots with scenic elevation, green surroundings, and easy access to the community's core amenities and boulevards.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "d-block",
-    image: "/Crystal Block hero.webp",
+    image: "/Block_D.png",
     badge: "Residential Plots",
     meta:  "2 Kanal",
     title: "D Block",
     desc:  "An established residential zone within ParkView City Islamabad offering well-positioned plots with full community infrastructure and convenient access.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "e-block",
-    image: "/Tulip-Overseas-Block (2).webp",
+    image: "/Block_E.png",
     badge: "Residential Plots",
     meta:  "1 Kanal, 1 Kanal Terrace",
     title: "E Block",
     desc:  "Conveniently positioned residential plots in the heart of ParkView City Islamabad, surrounded by green belts and close to essential community services.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "f-block",
-    image: "/Rose Market hero.webp",
+    image: "/Block_F.png",
     badge: "Residential Plots",
     meta:  "5 Marla, 10 Marla",
     title: "F Block",
     desc:  "A comfortable and accessible residential zone with wide internal roads, landscaped streetscapes, and proximity to the community's commercial areas.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "h-block",
-    image: "/Tulip-Overseas-Block (4).webp",
+    image: "/Block_H.png",
     badge: "Residential Plots",
     meta:  "5 Marla, 10 Marla, 1 Kanal",
     title: "H Block",
     desc:  "Spacious plots in one of the community's most sought-after residential zones — offering a balance of open space, security, and prime positioning.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "j-block-privilege",
-    image: "/ProjectIslamabad.png",
+    image: "/J_Block_Privilege.png",
     badge: "Privilege Block",
     meta:  "5 Marla, 10 Marla",
     title: "J Block Privilege",
     desc:  "A premium residential enclave with wide boulevards, landscaped green belts, and direct access to the community's finest commercial and recreational amenities.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "boulevard",
-    image: "/Image (Crystal Block).webp",
+    image: "/Boulevard.png",
     badge: "Premium Residential",
     meta:  "",
     title: "The Boulevard",
     desc:  "Wide-avenue residential plots along the community's main boulevard — a prestigious address offering maximum visibility, spacious living, and premium surroundings.",
-    price: "On Request",
+    price: "",
   },
   {
     id:    "overseas-premium",
-    image: "/Tulip-Overseas-Block-HERO.webp",
+    image: "/OverseasPremium.png",
     badge: "Overseas Block",
     meta:  "5 Marla, 10 Marla, 1 Kanal",
     title: "Overseas Premium",
     desc:  "Designed for the Pakistani diaspora — premium residential plots with overseas investor support, flexible terms, and full access to all community amenities.",
-    price: "On Request",
+    price: "",
+  },
+  {
+    id:    "fountain-view-residences",
+    image: "/A Place to call home.webp",
+    badge: "Residential Apartments",
+    meta:  "1-Bed, 2-Bed, 3-Bed & Penthouses",
+    title: "Fountain View Residences",
+    desc:  "Aesthetically designed apartments and penthouses with views of the dancing fountain, surrounding hills, and a central lake — located in the heart of Downtown Islamabad.",
+    price: "",
   },
 ];
 
 const commercial: Property[] = [
   {
-    image: "/VirtualTourSection.webp",
+    id:    "the-walk",
+    image: "/The_Walk_isb.png",
     badge: "Boutique Commercial",
     meta:  "The Walk, ParkView City Islamabad",
     title: "The Walk",
     desc:  "A boutique commercial promenade offering retail, food, and lifestyle spaces in a walkable, architecturally curated environment.",
-    price: "On Request",
+    price: "",
   },
   {
-    image: "/A Place to call home.webp",
+    id:    "downtown-islamabad",
+    image: "/Downtown_Islamabad.png",
     badge: "Downtown",
-    meta:  "Premium Commercial • 4 Marla, 8 Marla",
+    meta:  "Premium Commercial • 6 Marla, 8 Marla",
     title: "Downtown Islamabad",
     desc:  "Premium commercial plots at the heart of the community — designed to attract leading national and international brands with high footfall and visibility.",
-    price: "On Request",
+    price: "",
   },
   {
-    image: "/JADE Extension hero.webp",
+    id:    "overseas-commercial",
+    image: "/Overseas_commercial_isb.png",
     badge: "Overseas",
-    meta:  "Commercial Plots • 4 Marla, 8 Marla",
+    meta:  "Commercial Plots • 5 Marla",
     title: "Overseas Commercial",
     desc:  "Commercial investment opportunities for the Pakistani diaspora — a dedicated overseas commercial zone within ParkView City Islamabad.",
-    price: "On Request",
+    price: "",
   },
 ];
 

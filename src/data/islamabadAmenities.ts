@@ -8,7 +8,7 @@ import type {
 
 export type { AmenityIcon };
 
-export const islamabadAmenitiesHeroImage = "/ProjectIslamabad.png";
+export const islamabadAmenitiesHeroImage = "/AmenetiesHerosection-isb.png";
 export const islamabadAmenitiesCtaImage  = "/VirtualTourSection.webp";
 
 export const islamabadMainAmenities: AmenitySummary[] = [
