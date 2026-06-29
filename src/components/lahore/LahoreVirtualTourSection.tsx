@@ -15,7 +15,7 @@ export default function LahoreVirtualTourSection() {
     >
       {/* Background image */}
       <img
-        src="/VirtualTourSection.webp"
+        src="/LAHORE-Last_Section.webp"
         alt="ParkView City Lahore drone view"
         className="absolute inset-0 h-full w-full object-cover object-center"
         draggable={false}

@@ -12,7 +12,7 @@ export interface LahorePropertyCard {
 export const lahoreResidentialProperties: LahorePropertyCard[] = [
   {
     id: "tulip-overseas-block",
-    image: "/LAHORE-first_Section.webp",
+    image: "/Tulip%20Overseas.webp",
     badge: "KEY-25 Deal",
     meta: "Possession on 25% DP - 5 Marla, 10 Marla, 1 Kanal",
     title: "Tulip Overseas Block",
@@ -20,7 +20,7 @@ export const lahoreResidentialProperties: LahorePropertyCard[] = [
   },
   {
     id: "crystal-block",
-    image: "/LAHORE-PROJECT2.webp",
+    image: "/Crystal%20Block.webp",
     badge: "Pre-Launch Offer",
     meta: "On Cash - 5 Marla, 10 Marla, 1 Kanal",
     title: "Crystal Block",
@@ -28,7 +28,7 @@ export const lahoreResidentialProperties: LahorePropertyCard[] = [
   },
   {
     id: "jade-extension",
-    image: "/LAHORE-PROJECTS.webp",
+    image: "/Jade%20Ext.webp",
     badge: "Ready for Possession",
     meta: "On Cash - 5 Marla",
     title: "JADE Extension",
@@ -39,7 +39,7 @@ export const lahoreResidentialProperties: LahorePropertyCard[] = [
 export const lahoreCommercialProperties: LahorePropertyCard[] = [
   {
     id: "tulip-commercial",
-    image: "/LAHORE-PROJECT2.webp",
+    image: "/Tulip%20Commercial.webp",
     badge: "Commercial",
     meta: "Tulip Commercial, ParkView City Lahore",
     title: "Tulip Commercial",
@@ -47,7 +47,7 @@ export const lahoreCommercialProperties: LahorePropertyCard[] = [
   },
   {
     id: "broadway-commercial",
-    image: "/LAHORE-PROJECTS.webp",
+    image: "/Brodway%20Commercial.webp",
     badge: "Premium Phase",
     meta: "Commercial Hub, ParkView City Lahore",
     title: "Broadway Commercial",
@@ -55,7 +55,7 @@ export const lahoreCommercialProperties: LahorePropertyCard[] = [
   },
   {
     id: "the-walk-ii",
-    image: "/LAHORE-Last_Section.webp",
+    image: "/The%20Walk%20II.webp",
     badge: "Retail Avenue",
     meta: "The Walk II, ParkView City Lahore",
     title: "The Walk II",
@@ -63,7 +63,7 @@ export const lahoreCommercialProperties: LahorePropertyCard[] = [
   },
   {
     id: "the-walk",
-    image: "/LAHORE-first_Section.webp",
+    image: "/The%20Walk%20(10Marla).webp",
     badge: "Retail Block",
     meta: "The Walk, ParkView City Lahore",
     title: "The Walk",
@@ -92,18 +92,44 @@ const lahorePropertyCards = [
   ...lahoreCommercialProperties,
 ];
 
+export const fallbackLahoreGalleryImages: GalleryImage[] = [
+  { src: "/Crystal%20Block.webp", alt: "Crystal Block Lahore property view" },
+  { src: "/Jade%20Ext.webp", alt: "JADE Extension Lahore property view" },
+  { src: "/Tulip%20Overseas.webp", alt: "Tulip Overseas Lahore property view" },
+  { src: "/Tulip%20Commercial.webp", alt: "Tulip Commercial Lahore property view" },
+  { src: "/Brodway%20Commercial.webp", alt: "Broadway Commercial Lahore property view" },
+  { src: "/The%20Walk%20(10Marla).webp", alt: "The Walk Lahore commercial view" },
+  { src: "/The%20Walk%20II.webp", alt: "The Walk II Lahore commercial view" },
+  { src: "/The%20Walk%20(1kanal).webp", alt: "The Walk 1 Kanal Lahore commercial view" },
+  { src: "/B-Block.webp", alt: "B Block Lahore property view" },
+  { src: "/D-Block.webp", alt: "D Block Lahore property view" },
+  { src: "/E-Block.webp", alt: "E Block Lahore property view" },
+  { src: "/F-Blocks.webp", alt: "F Block Lahore property view" },
+  { src: "/H-Blocks.webp", alt: "H Block Lahore property view" },
+  { src: "/J-Block.webp", alt: "J Block Lahore property view" },
+  { src: "/LAHORE-first_Section.webp", alt: "ParkView City Lahore boulevard view" },
+  { src: "/LAHORE-Last_Section.webp", alt: "ParkView City Lahore community view" },
+  { src: "/LAHORE-PROJECT2.webp", alt: "ParkView City Lahore project view" },
+];
+
 function getCardImage(id: string) {
   return lahorePropertyCards.find(property => property.id === id)?.image;
 }
 
 function withCardImageFirst(id: string, fallbackAlt: string, gallery: GalleryImage[]): GalleryImage[] {
   const cardImage = getCardImage(id);
-  if (!cardImage) return gallery;
-
-  return [
-    { src: cardImage, alt: fallbackAlt },
-    ...gallery.filter(image => image.src !== cardImage),
+  const images = [
+    ...(cardImage ? [{ src: cardImage, alt: fallbackAlt }] : []),
+    ...gallery,
+    ...fallbackLahoreGalleryImages,
   ];
+
+  const seen = new Set<string>();
+  return images.filter(image => {
+    if (seen.has(image.src)) return false;
+    seen.add(image.src);
+    return true;
+  }).slice(0, 6);
 }
 
 export const TULIP_DETAIL: PropertyDetailData = {

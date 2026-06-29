@@ -72,7 +72,7 @@ export default function LahoreAboutSection() {
           className="flex w-full justify-center lg:justify-end"
         >
           <img
-            src="/A Place to call home.webp"
+            src="/LAHORE-first_Section.webp"
             alt="ParkView City Lahore — aerial neighbourhood view"
             className="h-[350px] w-full max-w-[600px] rounded-[16px] object-cover object-center shadow-md sm:h-[480px]"
           />

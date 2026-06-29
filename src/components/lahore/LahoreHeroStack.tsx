@@ -21,7 +21,7 @@ export default function LahoreHeroStack() {
       style={{ minHeight: "100svh" }}
     >
       <img
-        src="/hero video image.webp"
+        src="/lahore-hero-section.webp"
         alt="ParkView City Lahore aerial view"
         className="absolute inset-0 h-full w-full object-cover object-center"
         draggable={false}
@@ -29,7 +29,7 @@ export default function LahoreHeroStack() {
       <video
         className="absolute inset-0 h-full w-full object-cover object-center"
         src="/Lahore-hero_Section.mp4"
-        poster="/hero video image.webp"
+        poster="/lahore-hero-section.webp"
         autoPlay
         muted
         loop
