@@ -110,11 +110,22 @@ export default function UkPage() {
         style={{ minHeight: "100svh" }}
       >
         <img
-          src={ukHero.image}
+          src={ukHero.posterImage}
           alt="ParkView City UK — authorised sales offices"
           className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
         />
+        <video
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={ukHero.posterImage}
+          aria-label="ParkView City UK hero video"
+        >
+          <source src={ukHero.video} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/80" />
 
         <motion.div
@@ -202,8 +213,8 @@ export default function UkPage() {
             className="flex w-full justify-center lg:justify-end"
           >
             <img
-              src="/BeachResortProject.webp"
-              alt="ParkView City development — community overview"
+              src={ukIntro.image}
+              alt={ukIntro.imageAlt}
               className="h-[350px] w-full max-w-[600px] rounded-[16px] object-cover object-center shadow-md sm:h-[480px]"
             />
           </motion.div>
@@ -501,3 +512,4 @@ export default function UkPage() {
     </div>
   );
 }
+

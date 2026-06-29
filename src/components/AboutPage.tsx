@@ -68,7 +68,7 @@ export default function AboutPage() {
         aria-label="About ParkView City hero"
       >
         <img
-          src="/Pakistan-Biggest-Man-Made-Lake.png"
+          src="/about-Hero-section.webp"
           alt="ParkView City community aerial view"
           className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
@@ -147,8 +147,8 @@ export default function AboutPage() {
             >
               <div className="overflow-hidden rounded-[20px]" style={{ height: "clamp(320px, 38vw, 520px)" }}>
                 <img
-                  src="/10.png"
-                  alt="ParkView City residential development"
+                  src="/about-Who-We-Are.webp"
+                  alt="ParkView City planned urban community"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -473,8 +473,8 @@ export default function AboutPage() {
               {/* Image — left */}
               <div className="relative min-w-0 overflow-hidden rounded-[20px] shadow-sm h-[320px] sm:h-[420px] lg:h-[520px]">
                 <img
-                  src="/row4col3.png"
-                  alt="ParkView City green community environment"
+                  src="/about-Green-Pledge.webp"
+                  alt="ParkView City green community landscape"
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               </div>
@@ -657,7 +657,7 @@ export default function AboutPage() {
         id="about-cta"
         className="relative overflow-hidden py-20 sm:py-28"
         style={{
-          backgroundImage: "url('/1.png')",
+          backgroundImage: "url('/about-cta.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

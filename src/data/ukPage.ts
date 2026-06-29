@@ -28,7 +28,8 @@ export interface UkFaqItem {
 }
 
 export const ukHero = {
-  image: "/uk-First_section.webp",
+  video: "/uk-Hero_Section.mp4",
+  posterImage: "/uk-hero-section.webp",
   eyebrow: "Authorised UK Sales Offices - London · Manchester · Birmingham",
   title: "ParkView City UK Sales Office",
   description:
@@ -47,6 +48,8 @@ export const ukHero = {
 export const ukIntro = {
   eyebrow: "ParkView City in the United Kingdom",
   title: "A UK Doorway to Pakistan's Most Planned Communities",
+  image: "/uk-First_section.webp",
+  imageAlt: "ParkView City community overview for UK investors",
   paragraphs: [
     "ParkView City is one of Pakistan's best-known master-planned developments, with major communities in Islamabad and Lahore and a five-star coastal resort planned near Karachi.",
     "The UK Sales Office helps British Pakistanis purchase property without repeatedly travelling to Pakistan to manage paperwork.",
