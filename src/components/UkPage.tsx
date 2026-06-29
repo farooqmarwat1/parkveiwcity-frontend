@@ -8,6 +8,7 @@ import {
   ukCta,
   ukFaqItems,
   ukHero,
+  ukIntro,
   ukOffices,
   ukProjects,
   ukServices,
