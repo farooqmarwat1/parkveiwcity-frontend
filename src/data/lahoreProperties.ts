@@ -1,10 +1,116 @@
-import type { PropertyDetailData } from "@/components/lahore/PropertyDetailOverlay";
+import type { GalleryImage, PropertyDetailData } from "@/components/lahore/PropertyDetailOverlay";
+
+export interface LahorePropertyCard {
+  id: string;
+  image: string;
+  badge: string;
+  meta: string;
+  title: string;
+  desc: string;
+}
+
+export const lahoreResidentialProperties: LahorePropertyCard[] = [
+  {
+    id: "tulip-overseas-block",
+    image: "/LAHORE-first_Section.webp",
+    badge: "KEY-25 Deal",
+    meta: "Possession on 25% DP - 5 Marla, 10 Marla, 1 Kanal",
+    title: "Tulip Overseas Block",
+    desc: "A premium residential destination designed for overseas Pakistanis, offering flexible payment plans with possession on just 25% down payment.",
+  },
+  {
+    id: "crystal-block",
+    image: "/LAHORE-PROJECT2.webp",
+    badge: "Pre-Launch Offer",
+    meta: "On Cash - 5 Marla, 10 Marla, 1 Kanal",
+    title: "Crystal Block",
+    desc: "An exclusive new block offering luxury living at a pre-launch price. Secure your plot before the official launch.",
+  },
+  {
+    id: "jade-extension",
+    image: "/LAHORE-PROJECTS.webp",
+    badge: "Ready for Possession",
+    meta: "On Cash - 5 Marla",
+    title: "JADE Extension",
+    desc: "Plots ready for possession. JADE Extension offers immediate access to the full community with all amenities operational.",
+  },
+];
+
+export const lahoreCommercialProperties: LahorePropertyCard[] = [
+  {
+    id: "tulip-commercial",
+    image: "/LAHORE-PROJECT2.webp",
+    badge: "Commercial",
+    meta: "Tulip Commercial, ParkView City Lahore",
+    title: "Tulip Commercial",
+    desc: "A planned retail and business address positioned close to residential movement, designed for investor visibility and community access.",
+  },
+  {
+    id: "broadway-commercial",
+    image: "/LAHORE-PROJECTS.webp",
+    badge: "Premium Phase",
+    meta: "Commercial Hub, ParkView City Lahore",
+    title: "Broadway Commercial",
+    desc: "A thriving business destination with wide boulevards and a high-density shopping layout designed to attract strong local footfall.",
+  },
+  {
+    id: "the-walk-ii",
+    image: "/LAHORE-Last_Section.webp",
+    badge: "Retail Avenue",
+    meta: "The Walk II, ParkView City Lahore",
+    title: "The Walk II",
+    desc: "An extension of the walkable commercial experience, planned around premium retail frontage, dining activity, and outdoor movement.",
+  },
+  {
+    id: "the-walk",
+    image: "/LAHORE-first_Section.webp",
+    badge: "Retail Block",
+    meta: "The Walk, ParkView City Lahore",
+    title: "The Walk",
+    desc: "Ultra-luxury retail walk inspired by modern architecture with spacious outdoor promenades and mixed-use retail spaces.",
+  },
+  {
+    id: "rose-market",
+    image: "/Rose%20Market%20hero.webp",
+    badge: "Limited Inventory",
+    meta: "Rose Market, ParkView City Lahore",
+    title: "Rose Market",
+    desc: "A boutique commercial development with limited inventory, first-floor availability, and special pricing opportunities.",
+  },
+  {
+    id: "commercial-plots",
+    image: "/ProjectLahore.png",
+    badge: "Commercial Plots",
+    meta: "Multi-size Commercial Inventory",
+    title: "Commercial Plots",
+    desc: "Flexible commercial plot options for businesses and investors seeking long-term presence inside ParkView City Lahore.",
+  },
+];
+
+const lahorePropertyCards = [
+  ...lahoreResidentialProperties,
+  ...lahoreCommercialProperties,
+];
+
+function getCardImage(id: string) {
+  return lahorePropertyCards.find(property => property.id === id)?.image;
+}
+
+function withCardImageFirst(id: string, fallbackAlt: string, gallery: GalleryImage[]): GalleryImage[] {
+  const cardImage = getCardImage(id);
+  if (!cardImage) return gallery;
+
+  return [
+    { src: cardImage, alt: fallbackAlt },
+    ...gallery.filter(image => image.src !== cardImage),
+  ];
+}
 
 export const TULIP_DETAIL: PropertyDetailData = {
   id: "tulip-overseas-block",
   titleId: "tulip-detail-title",
   title: "Tulip Overseas Block",
-  heroImage: "/Tulip-Overseas-Block-HERO.webp",
+  heroImage: getCardImage("tulip-overseas-block") || "/Tulip-Overseas-Block-HERO.webp",
   heroAlt: "Tulip Overseas Block aerial hero view",
   badges: ["KEY-25 Deal", "Residential"],
   location: "Tulip Overseas Block, ParkView City Lahore",
@@ -18,14 +124,14 @@ export const TULIP_DETAIL: PropertyDetailData = {
     "Gated Community",
     "24/7 Security",
   ],
-  gallery: [
+  gallery: withCardImageFirst("tulip-overseas-block", "Tulip Overseas Block card image", [
     { src: "/LAHORE-first_Section.webp", alt: "ParkView City Lahore residential streetscape" },
     { src: "/LAHORE-Last_Section.webp", alt: "ParkView City Lahore landscaped community view" },
     { src: "/LAHORE-PROJECT2.webp", alt: "ParkView City Lahore premium project view" },
     { src: "/LAHORE-PROJECTS.webp", alt: "ParkView City Lahore project exterior" },
     { src: "/Tulip-Overseas-Block%20(1).webp", alt: "Tulip Overseas Block residential area" },
     { src: "/Tulip-Overseas-Block%20(2).webp", alt: "Tulip Overseas Block green landscape" },
-  ],
+  ]),
   galleryId: "tulip-gallery",
   galleryAriaLabel: "Enlarge Tulip Overseas Block gallery image",
   paymentPlanRoute: "/lahore/payment-plans#tulip-blocks-plans",
@@ -49,7 +155,7 @@ export const JADE_DETAIL: PropertyDetailData = {
   id: "jade-extension",
   titleId: "jade-detail-title",
   title: "JADE Extension",
-  heroImage: "/JADE%20Extension%20hero.webp",
+  heroImage: getCardImage("jade-extension") || "/JADE%20Extension%20hero.webp",
   heroAlt: "JADE Extension at ParkView City Lahore",
   badges: ["Ready for Possession", "Residential"],
   location: "JADE Extension, ParkView City Lahore",
@@ -63,7 +169,7 @@ export const JADE_DETAIL: PropertyDetailData = {
     "Mosque",
     "Security",
   ],
-  gallery: JADE_TEMP_GALLERY,
+  gallery: withCardImageFirst("jade-extension", "JADE Extension card image", JADE_TEMP_GALLERY),
   galleryId: "jade-gallery",
   galleryAriaLabel: "Enlarge JADE Extension gallery image",
   paymentPlanRoute: "/lahore/payment-plans#jade-extension-plans",
@@ -74,7 +180,7 @@ export const CRYSTAL_DETAIL: PropertyDetailData = {
   id: "crystal-block",
   titleId: "crystal-detail-title",
   title: "Crystal Block",
-  heroImage: "/Crystal%20Block%20hero.webp",
+  heroImage: getCardImage("crystal-block") || "/Crystal%20Block%20hero.webp",
   heroAlt: "Crystal Block at ParkView City Lahore",
   badges: ["Pre-Launch Offer", "Residential"],
   location: "Crystal Block, ParkView City Lahore",
@@ -88,14 +194,14 @@ export const CRYSTAL_DETAIL: PropertyDetailData = {
     "Parks",
     "Full Utilities",
   ],
-  gallery: [
+  gallery: withCardImageFirst("crystal-block", "Crystal Block card image", [
     { src: "/LAHORE-PROJECT2.webp", alt: "Crystal Block Lahore project view" },
     { src: "/LAHORE-PROJECTS.webp", alt: "Crystal Block ParkView City Lahore exterior" },
     { src: "/Crystal%20Block%20Gallery%20(1).webp", alt: "Crystal Block gallery image 1" },
     { src: "/Crystal%20Block%20Gallery%20(2).webp", alt: "Crystal Block gallery image 2" },
     { src: "/Crystal%20Block%20Gallery%20(3).webp", alt: "Crystal Block gallery image 3" },
     { src: "/Crystal%20Block%20Gallery%20(4).webp", alt: "Crystal Block gallery image 4" },
-  ],
+  ]),
   galleryId: "crystal-gallery",
   galleryAriaLabel: "Enlarge Crystal Block gallery image",
   paymentPlanRoute: "/lahore/payment-plans#crystal-block-plans",
@@ -117,7 +223,7 @@ export const ROSE_MARKET_DETAIL: PropertyDetailData = {
   id: "rose-market",
   titleId: "rose-market-detail-title",
   title: "Rose Market",
-  heroImage: "/Rose%20Market%20hero.webp",
+  heroImage: getCardImage("rose-market") || "/Rose%20Market%20hero.webp",
   heroAlt: "Rose Market at ParkView City Lahore",
   badges: ["Limited Inventory", "Commercial"],
   location: "Rose Market, ParkView City Lahore",
@@ -131,7 +237,7 @@ export const ROSE_MARKET_DETAIL: PropertyDetailData = {
     "Special Pricing",
     "High Demand Location",
   ],
-  gallery: ROSE_MARKET_TEMP_GALLERY,
+  gallery: withCardImageFirst("rose-market", "Rose Market card image", ROSE_MARKET_TEMP_GALLERY),
   galleryId: "rose-market-gallery",
   galleryAriaLabel: "Enlarge Rose Market gallery image",
   paymentPlanRoute: "/lahore/payment-plans#rose-market",
@@ -164,17 +270,20 @@ function commercialDetail({
   features: string[];
   heroImage?: string;
 }): PropertyDetailData {
+  const cardImage = getCardImage(id);
+  const detailHeroImage = cardImage || heroImage;
+
   return {
     id,
     titleId: `${id}-detail-title`,
     title,
-    heroImage,
+    heroImage: detailHeroImage,
     heroAlt: `${title} at ParkView City Lahore`,
     badges: [badge, "Commercial"],
     location,
     description,
     features,
-    gallery: LAHORE_COMMERCIAL_GALLERY,
+    gallery: withCardImageFirst(id, `${title} card image`, LAHORE_COMMERCIAL_GALLERY),
     galleryId: `${id}-gallery`,
     galleryAriaLabel: `Enlarge ${title} gallery image`,
     paymentPlanRoute: `/lahore/payment-plans#${id}`,

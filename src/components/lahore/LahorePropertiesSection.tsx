@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import {
+  lahoreCommercialProperties,
+  lahoreResidentialProperties,
+  type LahorePropertyCard,
+} from "@/data/lahoreProperties";
 
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const fadeUp = {
@@ -8,16 +13,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: easeOut } },
 };
 
-interface Property {
-  image: string;
-  badge: string;
-  meta: string;
-  title: string;
-  desc: string;
-  id?: string;
-}
-
-function PropertyCard({ image, badge, meta, title, desc, id, onOpen }: Property & { onOpen?: () => void }) {
+function PropertyCard({ image, badge, meta, title, desc, id, onOpen }: LahorePropertyCard & { onOpen?: () => void }) {
   const clickable = typeof onOpen === "function";
   return (
     <div
@@ -71,84 +67,6 @@ function PropertyCard({ image, badge, meta, title, desc, id, onOpen }: Property 
     </div>
   );
 }
-
-const residential: Property[] = [
-  {
-    id: "tulip-overseas-block",
-    image: "/LAHORE-first_Section.webp",
-    badge: "KEY-25 Deal",
-    meta: "Possession on 25% DP - 5 Marla, 10 Marla, 1 Kanal",
-    title: "Tulip Overseas Block",
-    desc: "A premium residential destination designed for overseas Pakistanis, offering flexible payment plans with possession on just 25% down payment.",
-  },
-  {
-    id: "crystal-block",
-    image: "/LAHORE-PROJECT2.webp",
-    badge: "Pre-Launch Offer",
-    meta: "On Cash - 5 Marla, 10 Marla, 1 Kanal",
-    title: "Crystal Block",
-    desc: "An exclusive new block offering luxury living at a pre-launch price. Secure your plot before the official launch.",
-  },
-  {
-    id: "jade-extension",
-    image: "/LAHORE-PROJECTS.webp",
-    badge: "Ready for Possession",
-    meta: "On Cash - 5 Marla",
-    title: "JADE Extension",
-    desc: "Plots ready for possession. JADE Extension offers immediate access to the full community with all amenities operational.",
-  },
-];
-
-const commercial: Property[] = [
-  {
-    id: "tulip-commercial",
-    image: "/LAHORE-PROJECT2.webp",
-    badge: "Commercial",
-    meta: "Tulip Commercial, ParkView City Lahore",
-    title: "Tulip Commercial",
-    desc: "A planned retail and business address positioned close to residential movement, designed for investor visibility and community access.",
-  },
-  {
-    id: "broadway-commercial",
-    image: "/LAHORE-PROJECTS.webp",
-    badge: "Premium Phase",
-    meta: "Commercial Hub, ParkView City Lahore",
-    title: "Broadway Commercial",
-    desc: "A thriving business destination with wide boulevards and a high-density shopping layout designed to attract strong local footfall.",
-  },
-  {
-    id: "the-walk-ii",
-    image: "/LAHORE-Last_Section.webp",
-    badge: "Retail Avenue",
-    meta: "The Walk II, ParkView City Lahore",
-    title: "The Walk II",
-    desc: "An extension of the walkable commercial experience, planned around premium retail frontage, dining activity, and outdoor movement.",
-  },
-  {
-    id: "the-walk",
-    image: "/LAHORE-first_Section.webp",
-    badge: "Retail Block",
-    meta: "The Walk, ParkView City Lahore",
-    title: "The Walk",
-    desc: "Ultra-luxury retail walk inspired by modern architecture with spacious outdoor promenades and mixed-use retail spaces.",
-  },
-  {
-    id: "rose-market",
-    image: "/Rose%20Market%20hero.webp",
-    badge: "Limited Inventory",
-    meta: "Rose Market, ParkView City Lahore",
-    title: "Rose Market",
-    desc: "A boutique commercial development with limited inventory, first-floor availability, and special pricing opportunities.",
-  },
-  {
-    id: "commercial-plots",
-    image: "/ProjectLahore.png",
-    badge: "Commercial Plots",
-    meta: "Multi-size Commercial Inventory",
-    title: "Commercial Plots",
-    desc: "Flexible commercial plot options for businesses and investors seeking long-term presence inside ParkView City Lahore.",
-  },
-];
 
 interface LahorePropertiesSectionProps {
   onOpenProperty?: (id: string) => void;
@@ -233,7 +151,7 @@ export default function LahorePropertiesSection({ onOpenProperty }: LahoreProper
             aria-label={tab === "residential" ? "Residential properties" : "Commercial properties"}
             className="mt-12 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            {(tab === "residential" ? residential : commercial).map(p => (
+            {(tab === "residential" ? lahoreResidentialProperties : lahoreCommercialProperties).map(p => (
               <PropertyCard
                 key={p.title}
                 {...p}
