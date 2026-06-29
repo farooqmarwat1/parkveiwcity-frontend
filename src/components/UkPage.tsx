@@ -202,7 +202,7 @@ export default function UkPage() {
             className="flex w-full justify-center lg:justify-end"
           >
             <img
-              src="/A Place to call home.webp"
+              src="/BeachResortProject.webp"
               alt="ParkView City development — community overview"
               className="h-[350px] w-full max-w-[600px] rounded-[16px] object-cover object-center shadow-md sm:h-[480px]"
             />
