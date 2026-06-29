@@ -108,8 +108,8 @@ export const aboutCommunities: CommunityItem[] = [
       "ParkView City's international presence extending world-class community development standards to the United Kingdom.",
     image: "/Crystal Block hero.webp",
     logo: "/PVLahore.png",
-    route: "/",
-    status: "coming-soon",
+    route: "/uk",
+    status: "available",
   },
 ];
 
@@ -155,12 +155,12 @@ export const aboutAwards: AwardItem[] = [
 
 /* ── Gallery ─────────────────────────────────────────────────── */
 export const aboutGallery: GalleryItem[] = [
-  { src: "/ProjectLahore.png",                    alt: "ParkView City Lahore aerial view",                 city: "Lahore"    },
-  { src: "/Crystal Block Gallery (1).webp",       alt: "Crystal Block, ParkView City Lahore",              city: "Lahore"    },
-  { src: "/Tulip-Overseas-Block (1).webp",        alt: "Tulip Overseas Block, ParkView City Lahore",       city: "Lahore"    },
-  { src: "/ProjectIslamabad.png",                 alt: "ParkView City Islamabad aerial view",              city: "Islamabad" },
-  { src: "/JADE Extension hero.webp",             alt: "JADE Extension, ParkView City Lahore",             city: "Lahore"    },
-  { src: "/Tulip-Overseas-Block (4).webp",        alt: "ParkView City Lahore residential community",       city: "Lahore"    },
+  { src: "/10.png", alt: "ParkView City landscaped residential boulevard", city: "Community" },
+  { src: "/11.png", alt: "ParkView City residential master plan aerial", city: "Community" },
+  { src: "/12.png", alt: "ParkView City modern residential development", city: "Community" },
+  { src: "/13.png", alt: "ParkView City premium community architecture", city: "Community" },
+  { src: "/14.png", alt: "ParkView City connected urban community", city: "Community" },
+  { src: "/15.png", alt: "ParkView City waterfront and mountain view", city: "Community" },
 ];
 
 /* ── Sustainability highlights ───────────────────────────────── */

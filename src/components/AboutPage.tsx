@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import {
-  ArrowRight, Award, CheckCircle2,
+  ArrowRight, CheckCircle2,
   Target, Heart, Lightbulb, Users, Leaf, TrendingUp,
 } from "lucide-react";
 import {
@@ -9,8 +9,6 @@ import {
   aboutVisionCards,
   aboutCommunities,
   aboutValues,
-  aboutAwards,
-  aboutGallery,
   aboutSustainabilityHighlights,
   aboutInnovationFeatures,
   type ValueItem,
@@ -70,7 +68,7 @@ export default function AboutPage() {
         aria-label="About ParkView City hero"
       >
         <img
-          src="/Tulip-Overseas-Block-HERO.webp"
+          src="/Pakistan-Biggest-Man-Made-Lake.png"
           alt="ParkView City community aerial view"
           className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
@@ -81,6 +79,11 @@ export default function AboutPage() {
           variants={stagger} initial="hidden" animate="show"
           className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-[6vh] text-center"
         >
+          <motion.p variants={fadeUp}
+            className="mb-5 font-roboto text-[11px] font-light uppercase tracking-[0.32em] text-pvc-gold"
+          >
+            A Dream Place to Live In
+          </motion.p>
           <motion.h1 variants={fadeUp}
             className="max-w-[90vw] text-center font-termina hero-title-termina uppercase text-white"
             style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0px" }}
@@ -100,7 +103,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           2 ▸ BRAND STORY
       ═══════════════════════════════ */}
-      <Section id="our-story" className="bg-white py-24 sm:py-32">
+      <Section id="our-story" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
@@ -108,6 +111,7 @@ export default function AboutPage() {
             <motion.div
               variants={stagger} initial="hidden" whileInView="show"
               viewport={{ once: true, amount: 0.35 }}
+              className="flex flex-col items-start"
             >
               <motion.p variants={fadeUp}
                 className="mb-4 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
@@ -143,19 +147,10 @@ export default function AboutPage() {
             >
               <div className="overflow-hidden rounded-[20px]" style={{ height: "clamp(320px, 38vw, 520px)" }}>
                 <img
-                  src="/Crystal Block hero.webp"
+                  src="/10.png"
                   alt="ParkView City residential development"
                   className="h-full w-full object-cover object-center"
                 />
-              </div>
-              {/* Floating brand card */}
-              <div className="absolute -bottom-5 -left-4 z-10 rounded-[14px] bg-white px-5 py-4 shadow-xl sm:-left-6">
-                <p className="font-roboto text-[9px] font-light uppercase tracking-[0.3em] text-pvc-gold">
-                  ParkView City
-                </p>
-                <p className="mt-0.5 font-termina text-[14px] font-normal text-pvc-navy">
-                  Communities Designed for Life
-                </p>
               </div>
             </motion.div>
 
@@ -167,7 +162,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           3 ▸ VISION / MISSION / PURPOSE
       ═══════════════════════════════ */}
-      <Section id="vision-mission" className="bg-white py-24 sm:py-32">
+      <Section id="vision-mission" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
 
           <motion.div
@@ -225,7 +220,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           4 ▸ OUR COMMUNITIES
       ═══════════════════════════════ */}
-      <Section id="our-communities" className="bg-white py-24 sm:py-32">
+      <Section id="our-communities" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
 
           <motion.div
@@ -309,25 +304,14 @@ export default function AboutPage() {
       ═══════════════════════════════ */}
       <Section
         id="about-impact"
-        className="relative overflow-hidden py-20 sm:py-24"
+        className="bg-white py-16 sm:py-24"
       >
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src="/VirtualTourSection.webp"
-            alt=""
-            role="presentation"
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/90" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-10">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
 
           <motion.div
             variants={stagger} initial="hidden" whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="mb-14 text-center"
+            className="mb-10 text-center"
           >
             <motion.p variants={fadeUp}
               className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-gold"
@@ -335,11 +319,18 @@ export default function AboutPage() {
               Our Scale
             </motion.p>
             <motion.h2 variants={fadeUp}
-              className="font-termina font-normal text-white"
+              className="font-termina font-normal text-pvc-navy"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               PARKVIEW CITY BY THE NUMBERS
             </motion.h2>
+            <motion.p variants={fadeUp}
+              className="mx-auto mt-5 max-w-[620px] font-roboto text-[12px] font-light leading-[20px] text-pvc-grey"
+            >
+              Environmental figures reflect information reported through ParkView City's
+              official Green Pledge content. City development count reflects publicly
+              announced community projects.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -351,26 +342,16 @@ export default function AboutPage() {
               <motion.div key={stat.label} variants={fadeUp}
                 className="flex flex-col items-center text-center"
               >
-                <p className="font-termina font-normal text-white" style={{ fontSize: "clamp(32px, 4vw, 54px)" }}>
+                <p className="font-termina font-normal text-pvc-navy" style={{ fontSize: "clamp(32px, 4vw, 54px)" }}>
                   {stat.value}
-                  <span className="text-white">{stat.suffix}</span>
+                  <span className="text-pvc-navy">{stat.suffix}</span>
                 </p>
-                <p className="mt-2 font-roboto text-[12px] font-light uppercase tracking-[0.22em] text-white/55">
+                <p className="mt-2 font-roboto text-[12px] font-light uppercase tracking-[0.22em] text-pvc-grey">
                   {stat.label}
                 </p>
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.p
-            variants={fadeUp} initial="hidden" whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
-            className="mx-auto mt-12 max-w-[600px] text-center font-roboto text-[11px] font-light leading-[19px] text-white/35"
-          >
-            Environmental figures reflect information reported through ParkView City's
-            official Green Pledge content. City development count reflects publicly
-            announced community projects.
-          </motion.p>
 
         </div>
       </Section>
@@ -379,7 +360,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           6 ▸ LEADERSHIP VISION
       ═══════════════════════════════ */}
-      <Section id="leadership" className="bg-white py-24 sm:py-32">
+      <Section id="leadership" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[720px] px-6 sm:px-10">
           <motion.div
             variants={stagger} initial="hidden" whileInView="show"
@@ -414,10 +395,10 @@ export default function AboutPage() {
             <motion.div variants={fadeUp} className="mt-8">
               <button
                 type="button"
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/contact#contact-form")}
                 className="flex h-[48px] items-center gap-2 rounded-full border border-pvc-navy/25 px-7 font-roboto text-[10px] uppercase tracking-[0.22em] text-pvc-navy/70 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer"
               >
-                Get in Touch
+                Enquire Now
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
               </button>
             </motion.div>
@@ -429,7 +410,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           7 ▸ CORE VALUES
       ═══════════════════════════════ */}
-      <Section id="our-values" className="bg-white py-24 sm:py-32">
+      <Section id="our-values" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
 
           <motion.div
@@ -484,21 +465,17 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           8 ▸ SUSTAINABILITY
       ═══════════════════════════════ */}
-      <Section id="sustainability" className="bg-white py-24 sm:py-32">
+      <Section id="sustainability" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
-          <div className="overflow-hidden rounded-[24px]">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="bg-white">
+            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
               {/* Image — left */}
-              <div className="relative min-h-[320px] overflow-hidden lg:min-h-[560px]">
+              <div className="relative min-w-0 overflow-hidden rounded-[20px] shadow-sm h-[320px] sm:h-[420px] lg:h-[520px]">
                 <img
-                  src="/A Place to call home.webp"
+                  src="/row4col3.png"
                   alt="ParkView City green community environment"
-                  className="h-full w-full object-cover object-center"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "linear-gradient(to right, rgba(15,25,47,0.55) 0%, transparent 60%)" }}
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               </div>
 
@@ -506,7 +483,7 @@ export default function AboutPage() {
               <motion.div
                 variants={stagger} initial="hidden" whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-col justify-center bg-pvc-navy px-8 py-12 sm:px-12"
+                className="flex min-w-0 max-w-[560px] flex-col justify-center bg-white px-0 py-0 lg:px-0"
               >
                 <motion.p variants={fadeUp}
                   className="mb-4 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
@@ -514,13 +491,13 @@ export default function AboutPage() {
                   Green Pledge
                 </motion.p>
                 <motion.h2 variants={fadeUp}
-                  className="font-termina font-normal text-white"
+                  className="font-termina font-normal text-pvc-navy"
                   style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}
                 >
                   Growing Communities Responsibly
                 </motion.h2>
                 <motion.p variants={fadeUp}
-                  className="mt-6 font-roboto text-[14px] font-light leading-[25px] text-white/65"
+                  className="mt-6 font-roboto text-[14px] font-light leading-[25px] text-pvc-grey"
                 >
                   ParkView City's Green Pledge reflects a commitment to environmental
                   stewardship through reforestation, plantation drives, greener urban
@@ -533,7 +510,7 @@ export default function AboutPage() {
                       className="flex items-start gap-3"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-pvc-gold" strokeWidth={1.5} />
-                      <span className="font-roboto text-[13px] font-light leading-[21px] text-white/70">
+                      <span className="font-roboto text-[13px] font-light leading-[21px] text-pvc-grey">
                         {item}
                       </span>
                     </motion.li>
@@ -543,7 +520,7 @@ export default function AboutPage() {
                   <button
                     type="button"
                     onClick={() => scrollToSection("about-impact")}
-                    className="flex h-[48px] items-center gap-2 rounded-full border border-white/30 px-7 font-roboto text-[10px] uppercase tracking-[0.22em] text-white/70 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer"
+                    className="flex h-[48px] items-center gap-2 rounded-full border border-pvc-navy/25 px-7 font-roboto text-[10px] uppercase tracking-[0.22em] text-pvc-navy/70 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer"
                   >
                     Discover the Green Vision
                     <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -560,7 +537,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           9 ▸ INNOVATION
       ═══════════════════════════════ */}
-      <Section id="innovation" className="bg-white py-24 sm:py-32">
+      <Section id="innovation" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
@@ -602,6 +579,16 @@ export default function AboutPage() {
                   </motion.li>
                 ))}
               </motion.ul>
+              <motion.div variants={fadeUp} className="mt-8">
+                <button
+                  type="button"
+                  onClick={() => navigate("/contact#contact-form")}
+                  className="flex h-[48px] items-center gap-2 rounded-full border border-pvc-navy/25 px-7 font-roboto text-[10px] uppercase tracking-[0.22em] text-pvc-navy/70 transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer"
+                >
+                  Learn More
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                </button>
+              </motion.div>
             </motion.div>
 
             {/* Device placeholder — right */}
@@ -658,121 +645,9 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           10 ▸ RECOGNITION
       ═══════════════════════════════ */}
-      <Section id="recognition" className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-[860px] px-6 sm:px-10">
-
-          <motion.div
-            variants={stagger} initial="hidden" whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-12 text-center"
-          >
-            <motion.p variants={fadeUp}
-              className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
-            >
-              Recognition
-            </motion.p>
-            <motion.h2 variants={fadeUp}
-              className="font-termina font-normal text-pvc-navy"
-              style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
-            >
-              A BRAND RECOGNISED FOR PROGRESS
-            </motion.h2>
-            <motion.p variants={fadeUp}
-              className="mx-auto mt-4 max-w-[480px] font-roboto text-[14px] font-light leading-[24px] text-pvc-grey"
-            >
-              ParkView City's official channels report two real-estate-category
-              recognitions received in 2024.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={stagger} initial="hidden" whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="flex flex-col items-center gap-5 sm:flex-row sm:justify-center"
-          >
-            {aboutAwards.map(award => (
-              <motion.article
-                key={award.title}
-                variants={fadeUp}
-                className="flex w-full max-w-[320px] flex-col items-center gap-4 rounded-[18px] border border-pvc-gold/25 bg-white px-8 py-9 text-center"
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-pvc-gold/35 bg-pvc-gold/8">
-                  <Award className="h-6 w-6 text-pvc-gold" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="font-termina text-[16px] font-normal text-pvc-navy">
-                    {award.title}
-                  </p>
-                  <p className="mt-1.5 font-roboto text-[11px] font-light uppercase tracking-[0.28em] text-pvc-gold">
-                    {award.year}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-
-        </div>
-      </Section>
-
-
       {/* ═══════════════════════════════
           11 ▸ GALLERY
       ═══════════════════════════════ */}
-      <Section id="about-gallery" className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
-
-          <motion.div
-            variants={stagger} initial="hidden" whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-12 text-center"
-          >
-            <motion.p variants={fadeUp}
-              className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
-            >
-              Life at ParkView
-            </motion.p>
-            <motion.h2 variants={fadeUp}
-              className="font-termina font-normal text-pvc-navy"
-              style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
-            >
-              PLACES DESIGNED TO BE EXPERIENCED
-            </motion.h2>
-            <motion.p variants={fadeUp}
-              className="mx-auto mt-4 max-w-[560px] font-roboto text-[14px] font-light leading-[24px] text-pvc-grey"
-            >
-              A glimpse into the environments, architecture, amenities, landscapes,
-              and community experiences across ParkView City.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp} initial="hidden" whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-            className="gallery-grid"
-          >
-            {aboutGallery.map((img, i) => (
-              <div
-                key={i}
-                className={`gallery-item gallery-item-${i + 1} group relative overflow-hidden rounded-[14px]`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="m-3 rounded-full bg-white/15 px-3 py-1 font-roboto text-[9px] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
-                    {img.city}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-        </div>
-      </Section>
-
-
       {/* ═══════════════════════════════
           12 ▸ FINAL CTA
       ═══════════════════════════════ */}
@@ -782,7 +657,7 @@ export default function AboutPage() {
         id="about-cta"
         className="relative overflow-hidden py-20 sm:py-28"
         style={{
-          backgroundImage: "url('/VirtualTourSection.webp')",
+          backgroundImage: "url('/1.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -798,40 +673,24 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.35 }}
           >
             <motion.p variants={fadeUp}
-              className="mb-4 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
+              className="mb-4 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-gold"
             >
               Discover What Comes Next
             </motion.p>
             <motion.h2 variants={fadeUp}
-              className="font-termina font-normal leading-tight text-white"
-              style={{ fontSize: "clamp(26px, 4vw, 48px)" }}
+              className="font-termina text-[26px] font-normal text-white sm:text-[34px] lg:text-[42px]"
             >
               FIND YOUR PLACE AT<br className="hidden sm:block" /> PARKVIEW CITY
             </motion.h2>
-            <motion.p variants={fadeUp}
-              className="mt-7 font-roboto text-[15px] font-light leading-[26px] tracking-[0.03em] text-white/65"
-            >
-              Explore our communities, compare opportunities, review payment plans,
-              or speak with our team to begin your ParkView City journey.
-            </motion.p>
             <motion.div variants={fadeUp}
-              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+              className="mt-10 flex items-center justify-center"
             >
               <button
                 type="button"
-                onClick={() => navigate("/#projects")}
-                className="flex h-[52px] min-w-[180px] items-center justify-center gap-2 rounded-full bg-pvc-gold px-8 font-roboto text-[11px] uppercase tracking-[0.25em] text-white transition-all duration-300 hover:bg-pvc-gold/85 cursor-pointer"
+                onClick={() => navigate("/contact#contact-form")}
+                className="inline-block rounded-full border border-white/30 bg-white/10 px-12 py-3 font-roboto text-[10px] uppercase tracking-[0.32em] text-white backdrop-blur-md transition-all duration-300 hover:border-pvc-gold hover:text-pvc-gold cursor-pointer"
               >
-                Explore Projects
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate("/contact")}
-                className="flex h-[52px] min-w-[180px] items-center justify-center gap-2 rounded-full border border-white/30 px-8 font-roboto text-[11px] uppercase tracking-[0.25em] text-white/70 transition-all duration-300 hover:border-white hover:text-white cursor-pointer"
-              >
-                Contact Us
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                Enquire Now
               </button>
             </motion.div>
           </motion.div>
