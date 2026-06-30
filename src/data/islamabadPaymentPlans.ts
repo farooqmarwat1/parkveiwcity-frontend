@@ -2,6 +2,42 @@ import type { LahorePaymentPlan } from "@/data/lahorePaymentPlans";
 
 export const islamabadResidentialPlans: LahorePaymentPlan[] = [
   {
+    slug: "ab-block-a-block-possession",
+    family: "A&B Block",
+    section: "residential",
+    category: "Residential",
+    title: "A Block",
+    planType: "Possession on 25% Down Payment",
+    image: "/Block_AB.png",
+    description:
+      "A Block offers 5 Marla to 1 Kanal residential plots within ParkView City Islamabad's well-connected AB Block, with possession on 25% down payment and 6 quarterly installments.",
+    tableColumns: ["Plot Size", "Total Price (PKR)", "Downpayment 25%", "Balance Payment", "6 Quarterly Installments"],
+    tableRows: [
+      ["5 Marla", "14,000,000", "3,500,000", "10,500,000", "1,750,000"],
+      ["10 Marla", "27,000,000", "6,750,000", "20,250,000", "3,375,000"],
+      ["1 Kanal", "60,000,000", "15,000,000", "45,000,000", "7,500,000"],
+    ],
+    pdfUrl: null,
+  },
+  {
+    slug: "ab-block-b-block-possession",
+    family: "A&B Block",
+    section: "residential",
+    category: "Residential",
+    title: "B Block",
+    planType: "Possession on 25% Down Payment",
+    image: "/Block_AB.png",
+    description:
+      "B Block offers 5 Marla to 1 Kanal residential plots within ParkView City Islamabad's well-connected AB Block, with possession on 25% down payment and 6 quarterly installments.",
+    tableColumns: ["Plot Size", "Total Price (PKR)", "Downpayment 25%", "Balance Payment", "6 Quarterly Installments"],
+    tableRows: [
+      ["5 Marla", "14,000,000", "3,500,000", "10,500,000", "1,750,000"],
+      ["10 Marla", "27,000,000", "6,750,000", "20,250,000", "3,375,000"],
+      ["1 Kanal", "70,000,000", "17,500,000", "52,500,000", "8,750,000"],
+    ],
+    pdfUrl: null,
+  },
+  {
     slug: "d-block-2-kanal",
     family: "D Block",
     section: "residential",
@@ -123,6 +159,95 @@ export const islamabadResidentialPlans: LahorePaymentPlan[] = [
     ],
     pdfUrl: null,
   },
+  {
+    slug: "boulevard-possession",
+    family: "Boulevard",
+    section: "residential",
+    category: "Residential",
+    title: "Boulevard",
+    planType: "Possession on 25% Down Payment",
+    image: "/Boulevard.png",
+    description:
+      "The Boulevard offers a signature 1 Kanal residential address along ParkView City Islamabad's main boulevard, with possession on 25% down payment and 6 quarterly installments.",
+    tableColumns: ["Plot Size", "Total Price (PKR)", "Downpayment 25%", "Remaining Payment", "6 Quarterly Installments"],
+    tableRows: [
+      ["1 Kanal", "50,000,000", "12,500,000", "37,500,000", "6,250,000"],
+    ],
+    pdfUrl: null,
+  },
+  {
+    slug: "hills-estate-possession",
+    family: "Hills Estate",
+    section: "residential",
+    category: "Residential",
+    title: "Hills Estate",
+    planType: "Possession on 25% Down Payment",
+    image: "/ProjectIslamabad.png",
+    description:
+      "Hills Estate offers 5 and 10 Marla residential plots set within ParkView City Islamabad's elevated terrain, with possession on 25% down payment and 8 quarterly installments.",
+    tableColumns: ["Plot Size", "Total Price (PKR)", "Downpayment 25%", "Remaining Payment", "8 Quarterly Installments"],
+    tableRows: [
+      ["5 Marla", "8,500,000", "2,125,000", "6,375,000", "796,875"],
+      ["10 Marla", "16,000,000", "4,000,000", "12,000,000", "1,500,000"],
+    ],
+    pdfUrl: null,
+  },
+  {
+    slug: "town-houses-possession",
+    family: "Town Houses",
+    section: "residential",
+    category: "Residential",
+    title: "Town Houses",
+    planType: "Possession on 25% Down Payment",
+    image: "/IslamabadProjectPic.webp",
+    description:
+      "Town Houses bring ready-built 1,155 sq.ft. residences to ParkView City Islamabad, with possession on 25% down payment, 4 quarterly installments, and 10% payable on possession.",
+    tableColumns: ["Floor", "Total Price (PKR)", "Downpayment 25%", "4 Quarterly Installments", "10% on Possession"],
+    tableRows: [
+      ["Ground Floor", "19,635,000", "4,908,750", "3,190,688", "1,963,500"],
+      ["1st, 2nd & 3rd Floor", "18,480,000", "4,620,000", "3,003,000", "1,848,000"],
+    ],
+    pdfUrl: null,
+  },
+  {
+    slug: "residential-villas-possession",
+    family: "Residential Villas",
+    section: "residential",
+    category: "Residential",
+    title: "Residential Villas",
+    planType: "Possession on 25% Down Payment",
+    image: "/PVIsb.png",
+    description:
+      "Residential Villas are ready-built 5 Marla homes available across A, B, F, H, and J Blocks in ParkView City Islamabad, with possession on 25% down payment and quarterly installments.",
+    tableColumns: ["Block", "Total Price (PKR)", "Downpayment 25%", "Balance Payment", "Quarterly Installments"],
+    tableRows: [
+      ["A Block — 5 Marla", "35,000,000", "8,750,000", "26,250,000", "4,375,000 (6 Quarterly)"],
+      ["B Block — 5 Marla", "35,000,000", "8,750,000", "26,250,000", "6,562,500 (4 Quarterly)"],
+      ["F Block — 5 Marla", "35,000,000", "8,750,000", "26,250,000", "4,375,000 (6 Quarterly)"],
+      ["H Block — 5 Marla", "37,500,000", "9,375,000", "28,125,000", "7,031,250 (4 Quarterly)"],
+      ["J Block — 5 Marla", "30,000,000", "7,500,000", "22,500,000", "3,750,000 (6 Quarterly)"],
+    ],
+    pdfUrl: null,
+  },
+  {
+    slug: "fountain-view-residences-initial-offering",
+    family: "Fountain View Residences",
+    section: "residential",
+    category: "Residential",
+    title: "Fountain View Residences",
+    planType: "Initial Offering — Possession on 25% Down Payment",
+    image: "/fountain-view.png",
+    description:
+      "Fountain View Residences brings 1, 2, and 3-bed downtown apartments to ParkView City Islamabad, with possession on 25% down payment and 4 quarterly installments.",
+    tableColumns: ["Apartment Type", "Size", "Total Price (PKR)", "Downpayment 25%", "4 Quarterly Installments"],
+    tableRows: [
+      ["1-Bed Apartment", "625 sq.ft.", "28,000,000", "7,000,000", "5,250,000"],
+      ["2-Bed Apartment", "1,194 sq.ft.", "53,000,000", "13,250,000", "9,937,500"],
+      ["3-Bed Apartment", "1,368 sq.ft.", "61,000,000", "15,250,000", "11,437,500"],
+    ],
+    notes: ["Pricing shown is for the Initial Offering. Individual building/unit pricing (Buildings A-4 through A-62) varies — contact the sales office for a unit-specific quotation."],
+    pdfUrl: null,
+  },
 ];
 
 export const islamabadCommercialPlans: LahorePaymentPlan[] = [
@@ -176,6 +301,24 @@ export const islamabadCommercialPlans: LahorePaymentPlan[] = [
       ["5 Marla", "50,000,000", "12,500,000", "37,500,000", "6,250,000"],
     ],
     notes: ["10% discount offer available on full cash payment."],
+    pdfUrl: null,
+  },
+  {
+    slug: "hi-rise-plots-on-cash",
+    family: "Hi-Rise Plots",
+    section: "commercial",
+    category: "Commercial",
+    title: "Hi-Rise Plots",
+    planType: "On Cash / Lump-Sum Payment",
+    image: "/firstsection-isb.png",
+    description:
+      "Hi-Rise Plots offer 10 Kanal towers for corporate, mixed-use, and welcome developments in ParkView City Islamabad, available on a lump-sum cash payment basis.",
+    tableColumns: ["Tower Type", "Plot Size", "Total Price (PKR)"],
+    tableRows: [
+      ["Corporate Tower", "10 Kanal", "4,000,000,000"],
+      ["Mix-Use Tower", "10 Kanal", "2,000,000,000"],
+      ["Welcome Tower", "10 Kanal", "5,000,000,000"],
+    ],
     pdfUrl: null,
   },
 ];

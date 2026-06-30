@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import LahorePaymentPlanBlockSection from "@/components/lahore/LahorePaymentPlanBlockSection";
 import { islamabadResidentialPlans, islamabadCommercialPlans } from "@/data/islamabadPaymentPlans";
+import ExploreButton from "@/components/ExploreButton";
 
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -70,17 +71,22 @@ export default function IslamabadPaymentPlansPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: easeOut }}
             className="max-w-[90vw] text-center text-white font-termina hero-title-termina uppercase"
-            style={{ fontSize: "24px", fontWeight: 500, lineHeight: "88.2px", letterSpacing: "0px" }}
+            style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0px" }}
           >
             Payment Plans
           </motion.h1>
+          <div className="mt-6">
+            <span className="font-roboto">
+              <ExploreButton label="Explore" variant="stats" href="#payment-plans-content" />
+            </span>
+          </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════
           RESIDENTIAL DIVIDER
       ════════════════════════════════════════════════════════ */}
-      <div className="mt-20 sm:mt-24">
+      <div id="payment-plans-content" className="mt-20 sm:mt-24 scroll-mt-[100px]">
         <CategoryDivider label="RESIDENTIAL PLOTS" />
       </div>
 

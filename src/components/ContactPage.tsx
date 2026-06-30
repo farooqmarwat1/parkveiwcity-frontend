@@ -8,6 +8,7 @@ import {
   officeRecords, PRIMARY_OFFICE_IDS, MAP_OFFICE_IDS,
   getOffice, type OfficeRecord,
 } from "@/data/contactOffices";
+import ExploreButton from "@/components/ExploreButton";
 
 /* ── Animation variants ──────────────────────────────────────── */
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -330,7 +331,7 @@ export default function ContactPage() {
 
         <motion.div
           variants={stagger} initial="hidden" animate="show"
-          className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-[14vh] text-center"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-[6vh] text-center"
         >
           <motion.h1 variants={fadeUp}
             className="max-w-[90vw] text-center font-termina hero-title-termina uppercase text-white"
@@ -338,6 +339,11 @@ export default function ContactPage() {
           >
             Contact Us
           </motion.h1>
+          <motion.div variants={fadeUp} className="mt-6">
+            <span className="font-roboto">
+              <ExploreButton label="Enquire" variant="stats" href="#contact-intro" />
+            </span>
+          </motion.div>
         </motion.div>
 
       </section>
@@ -345,7 +351,7 @@ export default function ContactPage() {
       {/* ═══════════════════════════════════════════════════════
           2 ▸ INTRODUCTION
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-white pt-12 pb-10 sm:pt-[88px] sm:pb-[56px]">
+      <section id="contact-intro" className="bg-white pt-12 pb-10 sm:pt-[88px] sm:pb-[56px] scroll-mt-[5px]">
         <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
           <div className="max-w-[900px]">
             <motion.div
@@ -378,7 +384,7 @@ export default function ContactPage() {
       {/* ═══════════════════════════════════════════════════════
           3 ▸ CONTACT INFO + FORM
       ═══════════════════════════════════════════════════════ */}
-      <section id="contact-form" className="bg-white pb-10 sm:pb-12">
+      <section id="contact-form" className="bg-white pb-10 scroll-mt-[140px] sm:pb-12">
         <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
 

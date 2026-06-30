@@ -1,72 +1,16 @@
 import type {
-  AmenityIcon,
-  AmenitySummary,
   FeaturedAmenity,
-  SupportingAmenity,
   GalleryImage,
 } from "@/data/lahoreAmenities";
 
-export type { AmenityIcon };
-
 export const islamabadAmenitiesHeroImage = "/AmenetiesHerosection-isb.png";
 export const islamabadAmenitiesCtaImage  = "/VirtualTourSection.webp";
-
-export const islamabadMainAmenities: AmenitySummary[] = [
-  {
-    id: "underground-electricity",
-    category: "Infrastructure",
-    title: "Underground Electricity",
-    shortDescription:
-      "Underground utility infrastructure keeps the streetscape clean, safe, and aesthetically consistent throughout ParkView City Islamabad.",
-    icon: "zap",
-  },
-  {
-    id: "commercial-hub",
-    category: "Commerce",
-    title: "Commercial Hub",
-    shortDescription:
-      "A dedicated commercial hub within the community provides residents with convenient access to retail, dining, and everyday services.",
-    icon: "store",
-  },
-  {
-    id: "dancing-fountain",
-    category: "Recreation",
-    title: "Dancing Fountain",
-    shortDescription:
-      "A landmark recreational feature at the heart of ParkView City Islamabad — the dancing fountain serves as an iconic community gathering point.",
-    icon: "map",
-  },
-  {
-    id: "food-valley",
-    category: "Dining",
-    title: "Food Valley",
-    shortDescription:
-      "A diverse food court and food valley bring a wide range of dining options directly within the ParkView City Islamabad community.",
-    icon: "users",
-  },
-  {
-    id: "parks",
-    category: "Green Spaces",
-    title: "Community Parks",
-    shortDescription:
-      "Landscaped parks and open green zones give residents welcoming spaces for leisure, recreation, family time, and outdoor activity.",
-    icon: "trees",
-  },
-  {
-    id: "security",
-    category: "Safety",
-    title: "24/7 Security",
-    shortDescription:
-      "Trained security personnel and controlled access points maintain a secure, monitored residential environment around the clock.",
-    icon: "shield",
-  },
-];
 
 export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "underground-electricity-feature",
     eyebrow: "Infrastructure",
-    title: "A Cleaner, Safer Community Infrastructure",
+    title: "Underground Electricity",
     description:
       "ParkView City Islamabad uses underground electricity to protect the community's visual environment and support a safer, more organized layout for residents and visitors alike.",
     benefits: [
@@ -80,7 +24,7 @@ export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "commercial-hub-feature",
     eyebrow: "Commerce",
-    title: "A Thriving Commercial Hub",
+    title: "Commercial Hub",
     description:
       "The commercial hub at ParkView City Islamabad brings retail, dining, and everyday services within easy reach, giving residents a convenient, walkable commercial centre.",
     benefits: [
@@ -94,7 +38,7 @@ export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "dancing-fountain-feature",
     eyebrow: "Recreation",
-    title: "The Dancing Fountain — A Community Icon",
+    title: "The Dancing Fountain",
     description:
       "The dancing fountain at ParkView City Islamabad is more than a landmark — it is a dynamic, beautifully lit centrepiece that brings residents together for family evenings, community events, and recreational moments.",
     benefits: [
@@ -108,7 +52,7 @@ export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "food-valley-feature",
     eyebrow: "Dining",
-    title: "Food Valley — A Dining Destination",
+    title: "Food Valley",
     description:
       "Food Valley brings together a wide range of restaurants and food outlets, creating a dedicated dining destination for residents and visitors within ParkView City Islamabad.",
     benefits: [
@@ -122,7 +66,7 @@ export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "parks-feature",
     eyebrow: "Green Spaces",
-    title: "Parks for Community Life",
+    title: "Community Parks",
     description:
       "Landscaped parks throughout ParkView City Islamabad give residents welcoming green spaces for leisure, recreation, family time, and outdoor activity.",
     benefits: [
@@ -136,7 +80,7 @@ export const islamabadFeaturedAmenities: FeaturedAmenity[] = [
   {
     id: "security-feature",
     eyebrow: "Safety",
-    title: "A Secure Gated Community",
+    title: "24/7 Security",
     description:
       "ParkView City Islamabad is a fully gated community with 24/7 security patrol, trained personnel at access points, and monitoring across key residential and commercial zones.",
     benefits: [

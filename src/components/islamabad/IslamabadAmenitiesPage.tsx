@@ -10,10 +10,7 @@ import {
 } from "lucide-react";
 import {
   islamabadAmenitiesHeroImage,
-  islamabadAmenitiesCtaImage,
-  islamabadMainAmenities,
   islamabadFeaturedAmenities,
-  islamabadSupportingAmenities,
   islamabadAmenitiesGallery,
 } from "@/data/islamabadAmenities";
 import ExploreButton from "@/components/ExploreButton";
@@ -23,45 +20,6 @@ const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
 };
-
-
-function SectionHeading({
-  eyebrow,
-  title,
-  description,
-  align = "center",
-}: {
-  eyebrow: string;
-  title: string;
-  description?: string;
-  align?: "center" | "left";
-}) {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={fadeUp}
-      className={[
-        "flex flex-col",
-        align === "center" ? "mx-auto max-w-[760px] items-center text-center" : "max-w-[620px] items-start text-left",
-      ].join(" ")}
-    >
-      <span className="muted-section-eyebrow font-roboto text-[10px] font-normal uppercase tracking-[0.32em]">
-        {eyebrow}
-      </span>
-      <h2 className="mt-4 font-termina text-[28px] font-normal uppercase leading-tight tracking-[0.06em] text-[#1D2D4E] sm:text-[40px]">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-5 font-roboto text-[15px] font-light leading-[28px] text-[#58595B]">
-          {description}
-        </p>
-      )}
-    </motion.div>
-  );
-}
-
 export default function IslamabadAmenitiesPage() {
   const navigate = useNavigate();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
@@ -111,48 +69,10 @@ export default function IslamabadAmenitiesPage() {
           </h1>
           <div className="mt-6">
             <span className="font-roboto">
-              <ExploreButton label="Explore Amenities" variant="stats" href="#amenities-grid" />
+              <ExploreButton label="Explore Amenities" variant="stats" href="#featured-amenities" />
             </span>
           </div>
         </motion.div>
-      </section>
-
-
-      {/* ── Main amenities grid ──────────────────────────────────── */}
-      <section id="amenities-grid" className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20">
-        <div className="mx-auto max-w-[1280px]">
-          <SectionHeading
-            eyebrow="Lifestyle Essentials"
-            title="Community Amenities"
-            description="From infrastructure and green spaces to security, recreation, and dining — every feature is planned around daily comfort in the capital."
-          />
-
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {islamabadMainAmenities.map((amenity, index) => {
-              return (
-                <motion.article
-                  key={amenity.id}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ delay: (index % 3) * 0.06 }}
-                  className="group flex h-full flex-col rounded-[16px] border border-[#1D2D4E]/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <span className="font-roboto text-[9px] font-normal uppercase tracking-[0.22em] text-[#C4973A]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.category}
-                  </span>
-                  <h3 className="mt-2 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.title}
-                  </h3>
-                  <p className="mt-3 font-roboto text-[13px] font-light leading-[24px] text-[#58595B]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.shortDescription}
-                  </p>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
       </section>
 
       {/* ── Featured amenities (alternating) ────────────────────── */}
@@ -215,36 +135,6 @@ export default function IslamabadAmenitiesPage() {
           );
         })}
       </section>
-
-      {/* ── Supporting amenities ─────────────────────────────────── */}
-      <section id="additional-amenities" className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20">
-        <div className="mx-auto max-w-[1280px]">
-          <SectionHeading
-            eyebrow="More Within the Community"
-            title="More Within the Community"
-            description="Supporting amenities bring added comfort, convenience, and daily utility to life at ParkView City Islamabad."
-          />
-
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {islamabadSupportingAmenities.map(item => {
-              return (
-                <article key={item.id} className="flex flex-col rounded-[14px] border border-[#1D2D4E]/10 bg-white p-6 transition-all duration-300 hover:border-[#C4973A]/45 hover:shadow-sm">
-                  <span className="font-roboto text-[8px] font-normal uppercase tracking-[0.9px] text-[#C4973A]">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-1 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]" style={{ letterSpacing: "0.9px" }}>
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 font-roboto text-[13px] font-light leading-[23px] text-[#58595B]" style={{ letterSpacing: "0.9px" }}>
-                    {item.description}
-                  </p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
 
       {/* ── Lightbox ─────────────────────────────────────────────── */}
       {lightboxIdx !== null && (

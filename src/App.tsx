@@ -118,7 +118,7 @@ function LahoreHomePage() {
   function handleEnquire() {
     clearScrollLock();
     setSelectedProperty(null);
-    navigate("/contact");
+    navigate("/lahore#lahore-enquiry");
   }
 
   function handlePaymentPlans(route: string) {
@@ -173,7 +173,7 @@ function IslamabadHomePage() {
   function handleEnquire() {
     clearScrollLock();
     setSelectedProperty(null);
-    navigate("/contact");
+    navigate("/islamabad#islamabad-enquiry");
   }
 
   function handlePaymentPlans(route: string) {

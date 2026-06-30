@@ -192,14 +192,14 @@ export default function UkPage() {
               <button
                 type="button"
                 onClick={() => scrollTo("#uk-projects")}
-                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
               >
                 View Properties
               </button>
               <button
                 type="button"
                 onClick={() => scrollTo("#uk-services")}
-                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
               >
                 Amenities
               </button>

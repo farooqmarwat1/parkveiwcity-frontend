@@ -119,7 +119,7 @@ export const AB_BLOCK_DETAIL: PropertyDetailData = {
   gallery: TEMP_GALLERY,
   galleryId: "ab-block-gallery",
   galleryAriaLabel: "Enlarge AB Block gallery image",
-  paymentPlanRoute: "/islamabad/payment-plans#ab-block-plans",
+  paymentPlanRoute: "/islamabad/payment-plans#a&b-block-plans",
   closeAriaLabel: "Close AB Block details",
 };
 
@@ -248,7 +248,7 @@ export const FOUNTAIN_VIEW_DETAIL: PropertyDetailData = {
   id: "fountain-view-residences",
   titleId: "fountain-view-detail-title",
   title: "Fountain View Residences",
-  heroImage: "/A Place to call home.webp",
+  heroImage: "/fountain-view.png",
   heroAlt: "Fountain View Residences, Downtown ParkView City Islamabad",
   badges: ["Residential Apartments", "Downtown"],
   location: "Downtown, ParkView City Islamabad",
@@ -265,7 +265,7 @@ export const FOUNTAIN_VIEW_DETAIL: PropertyDetailData = {
   gallery: TEMP_GALLERY,
   galleryId: "fountain-view-gallery",
   galleryAriaLabel: "Enlarge Fountain View Residences gallery image",
-  paymentPlanRoute: "/islamabad/payment-plans",
+  paymentPlanRoute: "/islamabad/payment-plans#fountain-view-residences-plans",
   closeAriaLabel: "Close Fountain View Residences details",
 };
 
@@ -290,7 +290,7 @@ export const THE_WALK_DETAIL: PropertyDetailData = {
   gallery: TEMP_GALLERY,
   galleryId: "the-walk-gallery",
   galleryAriaLabel: "Enlarge The Walk gallery image",
-  paymentPlanRoute: "/islamabad/payment-plans",
+  paymentPlanRoute: "/islamabad/payment-plans#the-walk-plans",
   closeAriaLabel: "Close The Walk details",
 };
 
@@ -315,7 +315,7 @@ export const DOWNTOWN_ISLAMABAD_DETAIL: PropertyDetailData = {
   gallery: TEMP_GALLERY,
   galleryId: "downtown-islamabad-gallery",
   galleryAriaLabel: "Enlarge Downtown Islamabad gallery image",
-  paymentPlanRoute: "/islamabad/payment-plans",
+  paymentPlanRoute: "/islamabad/payment-plans#downtown-islamabad-plans",
   closeAriaLabel: "Close Downtown Islamabad details",
 };
 
@@ -340,7 +340,7 @@ export const OVERSEAS_COMMERCIAL_DETAIL: PropertyDetailData = {
   gallery: TEMP_GALLERY,
   galleryId: "overseas-commercial-gallery",
   galleryAriaLabel: "Enlarge Overseas Commercial gallery image",
-  paymentPlanRoute: "/islamabad/payment-plans",
+  paymentPlanRoute: "/islamabad/payment-plans#overseas-commercial-plans",
   closeAriaLabel: "Close Overseas Commercial details",
 };
 
