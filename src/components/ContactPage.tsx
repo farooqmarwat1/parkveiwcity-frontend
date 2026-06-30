@@ -60,7 +60,7 @@ interface FieldProps {
 function Field({ label, required, error, children }: FieldProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-roboto text-[9px] font-light uppercase tracking-[0.28em] text-pvc-grey">
+      <label className="font-roboto text-[11px] font-medium uppercase leading-[16px] tracking-[1.8px] text-[#3F4447]">
         {label} {required && <span className="text-pvc-gold">*</span>}
       </label>
       {children}
