@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import {
   amenitiesHeroImage,
   featuredAmenities,
@@ -84,11 +84,10 @@ export default function LahoreAmenitiesPage() {
 
           <button
             type="button"
-            onClick={() => scrollToSection("#amenities-grid")}
+            onClick={() => scrollToSection("#featured-amenities")}
             className="mt-7 flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/50 bg-white/10 px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-white backdrop-blur-sm transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Explore Amenities
-            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
           </button>
         </motion.div>
       </section>
