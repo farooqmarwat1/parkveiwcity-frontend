@@ -1,31 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronDown, Search } from "lucide-react";
 
-const locationOptions = ["All Locations", "Lahore", "Islamabad", "Park View UK"];
-const propertyTypeOptions = [
-  "Any",
-  "Plots",
-  "Plot",
-  "Residential Plot",
-  "Commercial",
-  "Commercial Plot",
-  "Office",
-  "Shop",
-  "Apartment",
-  "Villa",
-  "House",
-  "Residential Unit",
-  "Farmhouse",
-  "Penthouse",
-];
-const bedroomOptions = ["Any", "1", "2", "3", "4", "5+"];
+const locationOptions = ["All Locations", "Lahore", "Islamabad"];
+const propertyTypeOptions = ["Any", "Residential", "Commercial"];
 const priceOptions = ["Any", "Under 50 Lac", "50 Lac - 1 Cr", "1 Cr - 3 Cr", "3 Cr - 5 Cr", "5 Cr+"];
-
-const bedroomRelevantTypes = ["Any", "Apartment", "Villa", "House", "Residential Unit", "Farmhouse", "Penthouse"];
-
-function shouldShowBedrooms(propertyType: string) {
-  return bedroomRelevantTypes.includes(propertyType);
-}
 
 function Dropdown({
   label,
@@ -86,26 +65,37 @@ function Dropdown({
 }
 
 export default function SearchBar() {
+  const navigate = useNavigate();
   const [location, setLocation] = useState("All Locations");
   const [propertyType, setPropertyType] = useState("Any");
-  const [bedrooms, setBedrooms] = useState("Any");
   const [price, setPrice] = useState("Any");
-  const showBedrooms = shouldShowBedrooms(propertyType);
 
-  useEffect(() => {
-    if (!showBedrooms) setBedrooms("");
-  }, [showBedrooms]);
+  function normalizePrice(priceLabel: string): string | null {
+    if (priceLabel === "Any") return null;
+    return priceLabel.toLowerCase().replace(/\s+/g, "-");
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const payload = {
-      location,
-      propertyType,
-      price,
-      ...(showBedrooms ? { bedrooms } : {}),
-    };
 
-    void payload;
+    const normalizedLocation = location === "All Locations" ? null : location.toLowerCase();
+    const normalizedType = propertyType === "Any" ? null : propertyType.toLowerCase();
+    const normalizedPrice = normalizePrice(price);
+
+    if (!normalizedLocation && !normalizedType) {
+      navigate("/#projects");
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (normalizedType) params.append("type", normalizedType);
+    if (normalizedPrice) params.append("price", normalizedPrice);
+
+    const queryString = params.toString();
+    const path = normalizedLocation === "lahore" ? "/lahore" : "/islamabad";
+    const url = queryString ? `${path}?${queryString}#properties` : `${path}#properties`;
+
+    navigate(url);
   }
 
   return (
@@ -127,14 +117,6 @@ export default function SearchBar() {
           options={propertyTypeOptions}
           onChange={setPropertyType}
         />
-        {showBedrooms && (
-          <Dropdown
-            label="Bedrooms"
-            selected={bedrooms}
-            options={bedroomOptions}
-            onChange={setBedrooms}
-          />
-        )}
         <Dropdown
           label="Price"
           selected={price}

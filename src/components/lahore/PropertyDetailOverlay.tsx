@@ -46,10 +46,11 @@ interface Props {
   data: PropertyDetailData;
   onClose: () => void;
   onEnquire: () => void;
+  onScheduleCall?: () => void;
   onPaymentPlans: (route: string) => void;
 }
 
-export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaymentPlans }: Props) {
+export default function PropertyDetailOverlay({ data, onClose, onEnquire, onScheduleCall, onPaymentPlans }: Props) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const overlayRef  = useRef<HTMLDivElement>(null);
   const closeRef    = useRef<HTMLButtonElement>(null);
@@ -412,7 +413,7 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
             </button>
             <button
               type="button"
-              onClick={onEnquire}
+              onClick={onScheduleCall ?? onEnquire}
               className="flex h-[48px] items-center justify-center rounded-full border
                          border-black/15 bg-white px-8 font-roboto text-[11px] uppercase
                          tracking-[0.22em] text-[#58595B] transition-all duration-300

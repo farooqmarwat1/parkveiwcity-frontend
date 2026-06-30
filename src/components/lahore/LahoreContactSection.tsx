@@ -108,12 +108,12 @@ export default function LahoreContactSection() {
               {/* Name + Phone */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Full Name <span className="text-pvc-gold">*</span></label>
+                  <label className="font-roboto text-[11px] font-medium leading-[16px] tracking-[1.8px] uppercase text-[#3F4447]">Full Name <span className="text-pvc-gold">*</span></label>
                   <input name="name" required placeholder="Your name" autoComplete="off" data-lpignore="true"
                     className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Phone <span className="text-pvc-gold">*</span></label>
+                  <label className="font-roboto text-[11px] font-medium leading-[16px] tracking-[1.8px] uppercase text-[#3F4447]">Phone <span className="text-pvc-gold">*</span></label>
                   <input name="phone" required placeholder="+92 xxx xxxxxxx" autoComplete="off" data-lpignore="true"
                     className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
                 </div>
@@ -121,21 +121,21 @@ export default function LahoreContactSection() {
 
               {/* Email */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Email Address</label>
+                <label className="font-roboto text-[11px] font-medium leading-[16px] tracking-[1.8px] uppercase text-[#3F4447]">Email Address</label>
                 <input name="email" type="email" placeholder="your@email.com" autoComplete="off" data-lpignore="true"
                   className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Interested In */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">I'm Interested In</label>
+                <label className="font-roboto text-[11px] font-medium leading-[16px] tracking-[1.8px] uppercase text-[#3F4447]">I'm Interested In</label>
                 <input name="interest" placeholder="e.g. Residential Plot, Apartment..." autoComplete="off" data-lpignore="true"
                   className="h-[47px] rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-1.5">
-                <label className="font-roboto text-[9px] font-light leading-[13.5px] tracking-[0.9px] uppercase text-pvc-grey">Message</label>
+                <label className="font-roboto text-[11px] font-medium leading-[16px] tracking-[1.8px] uppercase text-[#3F4447]">Message</label>
                 <textarea name="message" rows={4} placeholder="Tell us about your requirements..." autoComplete="off"
                   className="resize-none rounded-[15px] border border-gray-200 px-4 py-3 font-roboto text-[14px] font-normal leading-[21px] tracking-[0px] text-pvc-ink placeholder:text-pvc-ink/30 outline-none focus:border-pvc-gold transition-colors duration-200" />
               </div>

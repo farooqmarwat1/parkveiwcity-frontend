@@ -204,10 +204,11 @@ const commercial: Property[] = [
 
 interface IslamabadPropertiesSectionProps {
   onOpenProperty?: (id: string) => void;
+  initialTab?: "residential" | "commercial";
 }
 
-export default function IslamabadPropertiesSection({ onOpenProperty }: IslamabadPropertiesSectionProps = {}) {
-  const [tab, setTab] = useState<"residential" | "commercial">("residential");
+export default function IslamabadPropertiesSection({ onOpenProperty, initialTab = "residential" }: IslamabadPropertiesSectionProps = {}) {
+  const [tab, setTab] = useState<"residential" | "commercial">(initialTab);
 
   return (
     <>

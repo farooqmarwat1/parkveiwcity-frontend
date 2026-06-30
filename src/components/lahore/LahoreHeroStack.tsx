@@ -51,7 +51,7 @@ export default function LahoreHeroStack() {
           className="max-w-[90vw] text-center text-white font-termina hero-title-termina uppercase"
           style={{ fontSize: "24px", fontWeight: 500, lineHeight: "88.2px", letterSpacing: "0px" }}
         >
-          Where Lifestyle Meets Luxury
+          A Dream Place to Call Home
         </motion.h1>
 
         <motion.div variants={item} className="mt-6 sm:mt-0">

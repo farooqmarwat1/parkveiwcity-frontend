@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroStack from "@/components/HeroStack";
@@ -96,29 +96,32 @@ function HomePage() {
 /* ── Lahore home page — overlay state lives here ──────────────── */
 function LahoreHomePage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
+
+  const typeParam = searchParams.get("type");
+  const initialTab = (typeParam === "commercial" || typeParam === "residential") ? typeParam : "residential";
 
   function clearScrollLock() {
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
   }
 
-  function scrollToLahoreProjects() {
-    window.requestAnimationFrame(() => {
-      document.getElementById("properties")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-
   function closeLahoreOverlay() {
     clearScrollLock();
     setSelectedProperty(null);
-    scrollToLahoreProjects();
   }
 
   function handleEnquire() {
     clearScrollLock();
     setSelectedProperty(null);
-    navigate("/lahore#lahore-enquiry");
+    navigate("/lahore#lahore-enquiry-form");
+  }
+
+  function handleScheduleCall() {
+    clearScrollLock();
+    setSelectedProperty(null);
+    navigate("/contact");
   }
 
   function handlePaymentPlans(route: string) {
@@ -143,9 +146,9 @@ function LahoreHomePage() {
     <>
       <LahoreHeroStack />
       <LahoreAboutSection />
-      <LahorePropertiesSection onOpenProperty={setSelectedProperty} />
+      <LahorePropertiesSection onOpenProperty={setSelectedProperty} initialTab={initialTab} />
       <LahoreAmenitiesPreviewSection />
-      <SharedEnquirySection id="lahore-enquiry" />
+      <SharedEnquirySection id="lahore-enquiry-form" />
       <LahoreVirtualTourSection />
 
       {activeDetail && (
@@ -153,6 +156,7 @@ function LahoreHomePage() {
           data={activeDetail}
           onClose={closeLahoreOverlay}
           onEnquire={handleEnquire}
+          onScheduleCall={handleScheduleCall}
           onPaymentPlans={handlePaymentPlans}
         />
       )}
@@ -163,7 +167,11 @@ function LahoreHomePage() {
 /* ── Islamabad home page — overlay state lives here ───────────────── */
 function IslamabadHomePage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
+
+  const typeParam = searchParams.get("type");
+  const initialTab = (typeParam === "commercial" || typeParam === "residential") ? typeParam : "residential";
 
   function clearScrollLock() {
     document.documentElement.style.overflow = "";
@@ -173,7 +181,13 @@ function IslamabadHomePage() {
   function handleEnquire() {
     clearScrollLock();
     setSelectedProperty(null);
-    navigate("/islamabad#islamabad-enquiry");
+    navigate("/islamabad#islamabad-enquiry-form");
+  }
+
+  function handleScheduleCall() {
+    clearScrollLock();
+    setSelectedProperty(null);
+    navigate("/contact");
   }
 
   function handlePaymentPlans(route: string) {
@@ -202,16 +216,20 @@ function IslamabadHomePage() {
     <>
       <IslamabadHeroStack />
       <IslamabadAboutSection />
-      <IslamabadPropertiesSection onOpenProperty={setSelectedProperty} />
+      <IslamabadPropertiesSection onOpenProperty={setSelectedProperty} initialTab={initialTab} />
       <IslamabadAmenitiesPreviewSection />
-      <SharedEnquirySection id="islamabad-enquiry" />
+      <SharedEnquirySection id="islamabad-enquiry-form" />
       <IslamabadVirtualTourSection />
 
       {activeDetail && (
         <PropertyDetailOverlay
           data={activeDetail}
-          onClose={() => setSelectedProperty(null)}
+          onClose={() => {
+            clearScrollLock();
+            setSelectedProperty(null);
+          }}
           onEnquire={handleEnquire}
+          onScheduleCall={handleScheduleCall}
           onPaymentPlans={handlePaymentPlans}
         />
       )}
