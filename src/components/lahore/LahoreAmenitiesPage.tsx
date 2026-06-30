@@ -3,8 +3,6 @@ import { ArrowRight, Check } from "lucide-react";
 import {
   amenitiesHeroImage,
   featuredAmenities,
-  officialMainAmenities,
-  supportingAmenities,
 } from "@/data/lahoreAmenities";
 
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -95,46 +93,6 @@ export default function LahoreAmenitiesPage() {
         </motion.div>
       </section>
 
-      <section
-        id="amenities-grid"
-        className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20"
-        style={{ scrollMarginTop: "90px" }}
-      >
-        <div className="mx-auto max-w-[1280px]">
-          <SectionHeading
-            eyebrow="Lifestyle Essentials"
-            title="Community Amenities"
-            description="From connectivity and utilities to parks, learning, security, and recreation, every feature is planned around daily comfort."
-          />
-
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {officialMainAmenities.map((amenity, index) => {
-              return (
-                <motion.article
-                  key={amenity.id}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ delay: (index % 3) * 0.06 }}
-                  className="group flex h-full flex-col rounded-[16px] border border-[#1D2D4E]/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <span className="font-roboto text-[9px] font-normal uppercase tracking-[0.22em] text-[#C4973A]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.category}
-                  </span>
-                  <h3 className="mt-2 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.title}
-                  </h3>
-                  <p className="mt-3 font-roboto text-[13px] font-light leading-[24px] text-[#58595B]" style={{ letterSpacing: "0.9px" }}>
-                    {amenity.shortDescription}
-                  </p>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       <section id="featured-amenities">
         {featuredAmenities.map((feature, index) => {
           const imageFirst = index % 2 === 1;
@@ -193,34 +151,6 @@ export default function LahoreAmenitiesPage() {
             </section>
           );
         })}
-      </section>
-
-      <section id="additional-amenities" className="bg-white px-6 py-20 sm:px-10 sm:py-24 lg:px-20">
-        <div className="mx-auto max-w-[1280px]">
-          <SectionHeading
-            eyebrow="More Within the Community"
-            title="More Within the Community"
-            description="Supporting amenities bring added comfort, convenience, and daily utility to the ParkView City Lahore lifestyle."
-          />
-
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {supportingAmenities.map(item => {
-              return (
-                <article key={item.id} className="flex flex-col rounded-[14px] border border-[#1D2D4E]/10 bg-white p-6 transition-all duration-300 hover:border-[#C4973A]/45 hover:shadow-sm">
-                  <span className="font-roboto text-[8px] font-normal uppercase tracking-[0.9px] text-[#C4973A]">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-1 font-roboto text-[20px] font-normal leading-snug text-[#1D2D4E]" style={{ letterSpacing: "0.9px" }}>
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 font-roboto text-[13px] font-light leading-[23px] text-[#58595B]" style={{ letterSpacing: "0.9px" }}>
-                    {item.description}
-                  </p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
       </section>
 
     </div>

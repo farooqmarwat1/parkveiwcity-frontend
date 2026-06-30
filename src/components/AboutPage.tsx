@@ -473,7 +473,7 @@ export default function AboutPage() {
               {/* Image — left */}
               <div className="relative min-w-0 overflow-hidden rounded-[20px] shadow-sm h-[320px] sm:h-[420px] lg:h-[520px]">
                 <img
-                  src="/about-Green-Pledge.webp"
+                  src="/about-first-section.webp"
                   alt="ParkView City green community landscape"
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />

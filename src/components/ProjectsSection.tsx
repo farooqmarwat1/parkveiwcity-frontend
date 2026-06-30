@@ -9,13 +9,13 @@ const fadeUp: Variants = {
 
 const projects = [
   {
-    image: "/ProjectLahore.png",
+    image: "/LahorePorjectPic.webp",
     title: "PARKVIEW CITY LAHORE",
     subtitle: "A Place to Call Home",
     href: "/lahore",
   },
   {
-    image: "/ProjectIslamabad.png",
+    image: "/firstsection-isb.png",
     title: "PARKVIEW CITY ISLAMABAD",
     subtitle: "A Dream Place to Live In",
     href: "/islamabad",
