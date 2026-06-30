@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import ExploreButton from "@/components/ExploreButton";
 import LahorePaymentPlanBlockSection from "@/components/lahore/LahorePaymentPlanBlockSection";
 import { islamabadResidentialPlans, islamabadCommercialPlans } from "@/data/islamabadPaymentPlans";
 
@@ -74,8 +75,23 @@ export default function IslamabadPaymentPlansPage() {
           >
             Payment Plans
           </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: easeOut }}
+            className="mt-6 sm:mt-0"
+          >
+            <span className="font-roboto">
+              <ExploreButton label="Explore" variant="stats" href="#payment-plans-content" />
+            </span>
+          </motion.div>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════
+          PAYMENT PLANS CONTENT
+      ════════════════════════════════════════════════════════ */}
+      <div id="payment-plans-content" style={{ scrollMarginTop: "100px" }}>
 
       {/* ════════════════════════════════════════════════════════
           RESIDENTIAL DIVIDER
@@ -120,6 +136,8 @@ export default function IslamabadPaymentPlansPage() {
           />
         );
       })}
+
+      </div>
 
       <div className="h-20 sm:h-24" />
     </div>

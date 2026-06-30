@@ -46,10 +46,11 @@ interface Props {
   data: PropertyDetailData;
   onClose: () => void;
   onEnquire: () => void;
+  onScheduleCall?: () => void;
   onPaymentPlans: (route: string) => void;
 }
 
-export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaymentPlans }: Props) {
+export default function PropertyDetailOverlay({ data, onClose, onEnquire, onScheduleCall, onPaymentPlans }: Props) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const overlayRef  = useRef<HTMLDivElement>(null);
   const closeRef    = useRef<HTMLButtonElement>(null);
@@ -405,18 +406,18 @@ export default function PropertyDetailOverlay({ data, onClose, onEnquire, onPaym
               className="flex h-[48px] items-center justify-center rounded-full
                          border border-black/15 bg-white px-8 font-roboto text-[11px] uppercase
                          tracking-[0.22em] text-[#58595B] transition-all duration-300
-                         hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] focus-visible:outline focus-visible:outline-2
+                         hover:border-[#C4973A] hover:text-[#C4973A] focus-visible:outline focus-visible:outline-2
                          focus-visible:outline-[#C4973A] cursor-pointer sm:min-w-[180px]"
             >
               Enquire Now
             </button>
             <button
               type="button"
-              onClick={onEnquire}
+              onClick={onScheduleCall ?? onEnquire}
               className="flex h-[48px] items-center justify-center rounded-full border
                          border-black/15 bg-white px-8 font-roboto text-[11px] uppercase
                          tracking-[0.22em] text-[#58595B] transition-all duration-300
-                         hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] focus-visible:outline focus-visible:outline-2
+                         hover:border-[#C4973A] hover:text-[#C4973A] focus-visible:outline focus-visible:outline-2
                          focus-visible:outline-[#C4973A] cursor-pointer sm:min-w-[180px]"
             >
               Schedule a Call

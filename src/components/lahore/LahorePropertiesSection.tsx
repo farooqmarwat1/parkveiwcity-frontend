@@ -70,10 +70,11 @@ function PropertyCard({ image, badge, meta, title, desc, id, onOpen }: LahorePro
 
 interface LahorePropertiesSectionProps {
   onOpenProperty?: (id: string) => void;
+  initialTab?: "residential" | "commercial";
 }
 
-export default function LahorePropertiesSection({ onOpenProperty }: LahorePropertiesSectionProps = {}) {
-  const [tab, setTab] = useState<"residential" | "commercial">("residential");
+export default function LahorePropertiesSection({ onOpenProperty, initialTab = "residential" }: LahorePropertiesSectionProps = {}) {
+  const [tab, setTab] = useState<"residential" | "commercial">(initialTab);
 
   return (
     <>

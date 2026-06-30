@@ -50,14 +50,14 @@ export default function IslamabadAboutSection() {
             <button
               type="button"
               onClick={() => scrollTo("#properties")}
-              className="flex h-[44px] min-w-[160px] items-center justify-center gap-2 rounded-full border border-[#58595B]/40 px-8 font-roboto text-[12px] font-medium leading-[18px] tracking-[3.3px] uppercase text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+              className="flex h-[44px] min-w-[160px] items-center justify-center gap-2 rounded-full border border-[#58595B]/40 px-8 font-roboto text-[12px] font-medium leading-[18px] tracking-[3.3px] uppercase text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               View Properties
             </button>
             <button
               type="button"
               onClick={() => scrollTo("#amenities")}
-              className="flex h-[44px] min-w-[160px] items-center justify-center gap-2 rounded-full border border-[#58595B]/40 px-8 font-roboto text-[12px] font-medium leading-[18px] tracking-[3.3px] uppercase text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+              className="flex h-[44px] min-w-[160px] items-center justify-center gap-2 rounded-full border border-[#58595B]/40 px-8 font-roboto text-[12px] font-medium leading-[18px] tracking-[3.3px] uppercase text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
             >
               Amenities
             </button>

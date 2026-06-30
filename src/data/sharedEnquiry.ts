@@ -34,13 +34,8 @@ export const sharedEnquiryConfig: SharedEnquiryConfig = {
   formTitle: "Send an Enquiry",
   submitButton: "Submit Enquiry",
   interestOptions: [
-    "Residential Plot",
-    "Commercial Plot",
-    "Apartment",
-    "Payment Plan",
-    "ParkView City Lahore",
     "ParkView City Islamabad",
+    "ParkView City Lahore",
     "ParkView City UK",
-    "General Enquiry",
   ],
 };

@@ -192,14 +192,14 @@ export default function UkPage() {
               <button
                 type="button"
                 onClick={() => scrollTo("#uk-projects")}
-                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
               >
                 View Properties
               </button>
               <button
                 type="button"
                 onClick={() => scrollTo("#uk-services")}
-                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A] cursor-pointer"
+                className="flex h-[43px] items-center justify-center rounded-full border border-black/15 bg-white px-7 font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A] cursor-pointer"
               >
                 Amenities
               </button>
@@ -256,7 +256,17 @@ export default function UkPage() {
             {ukProjects.map(project => (
               <div
                 key={project.title}
-                className="group flex w-full flex-col overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate(project.route ?? "/contact#contact-form")}
+                onKeyDown={e => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    navigate(project.route ?? "/contact#contact-form");
+                  }
+                }}
+                aria-label={`View details for ${project.title}`}
+                className="group flex w-full cursor-pointer flex-col overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
               >
                 <div className="relative h-[200px] shrink-0 overflow-hidden">
                   <img
@@ -299,7 +309,11 @@ export default function UkPage() {
                     </span>
                     <button
                       type="button"
-                      onClick={() => navigate(project.route ?? "/contact#contact-form")}
+                      onClick={e => {
+                        e.stopPropagation();
+                        navigate(project.route ?? "/contact#contact-form");
+                      }}
+                      aria-label={`View details for ${project.title}`}
                       className="flex h-9 w-9 items-center justify-center rounded-full border border-black/15 text-[#58595B] transition-all duration-300 group-hover:border-[#C4973A] group-hover:text-[#C4973A] cursor-pointer"
                     >
                       <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
@@ -340,7 +354,7 @@ export default function UkPage() {
             <div>
               <a
                 href={ukHero.primaryHref}
-                className="flex h-[43px] w-[201px] items-center justify-center rounded-full border border-black/15 bg-white font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:bg-[#C4973A]/8 hover:text-[#C4973A]"
+                className="flex h-[43px] w-[201px] items-center justify-center rounded-full border border-black/15 bg-white font-roboto text-[11px] font-normal uppercase tracking-[0.18em] text-[#58595B] transition-all duration-300 hover:border-[#C4973A] hover:text-[#C4973A]"
               >
                 {ukHero.primaryButton}
               </a>

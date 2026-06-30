@@ -79,11 +79,6 @@ export default function AboutPage() {
           variants={stagger} initial="hidden" animate="show"
           className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-[6vh] text-center"
         >
-          <motion.p variants={fadeUp}
-            className="mb-5 font-roboto text-[11px] font-light uppercase tracking-[0.32em] text-pvc-gold"
-          >
-            A Dream Place to Live In
-          </motion.p>
           <motion.h1 variants={fadeUp}
             className="max-w-[90vw] text-center font-termina hero-title-termina uppercase text-white"
             style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0px" }}
@@ -314,7 +309,7 @@ export default function AboutPage() {
             className="mb-10 text-center"
           >
             <motion.p variants={fadeUp}
-              className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-gold"
+              className="mb-3 font-roboto text-[14px] font-light uppercase tracking-[0.35em] text-pvc-grey"
             >
               Our Scale
             </motion.p>
@@ -473,7 +468,7 @@ export default function AboutPage() {
               {/* Image — left */}
               <div className="relative min-w-0 overflow-hidden rounded-[20px] shadow-sm h-[320px] sm:h-[420px] lg:h-[520px]">
                 <img
-                  src="/about-Green-Pledge.webp"
+                  src="/about-first-section.webp"
                   alt="ParkView City green community landscape"
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />

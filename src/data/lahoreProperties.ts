@@ -71,7 +71,7 @@ export const lahoreCommercialProperties: LahorePropertyCard[] = [
   },
   {
     id: "rose-market",
-    image: "/Rose%20Market%20hero.webp",
+    image: "/Rose-Market.webp",
     badge: "Limited Inventory",
     meta: "Rose Market, ParkView City Lahore",
     title: "Rose Market",
@@ -79,7 +79,7 @@ export const lahoreCommercialProperties: LahorePropertyCard[] = [
   },
   {
     id: "commercial-plots",
-    image: "/ProjectLahore.png",
+    image: "/commerical-plots.webp",
     badge: "Commercial Plots",
     meta: "Multi-size Commercial Inventory",
     title: "Commercial Plots",
@@ -237,7 +237,7 @@ export const CRYSTAL_DETAIL: PropertyDetailData = {
 // Temporary Rose Market gallery images. Replace these with final Rose Market
 // commercial photography when dedicated assets are supplied.
 const ROSE_MARKET_TEMP_GALLERY = [
-  { src: "/Rose%20Market%20hero.webp", alt: "Rose Market commercial hero view" },
+  { src: "/Rose-Market.webp", alt: "Rose Market commercial hero view" },
   { src: "/LAHORE-PROJECT2.webp", alt: "Rose Market Lahore commercial project view" },
   { src: "/LAHORE-PROJECTS.webp", alt: "Rose Market commercial exterior" },
   { src: "/LAHORE-first_Section.webp", alt: "ParkView City Lahore commercial access" },
@@ -249,7 +249,7 @@ export const ROSE_MARKET_DETAIL: PropertyDetailData = {
   id: "rose-market",
   titleId: "rose-market-detail-title",
   title: "Rose Market",
-  heroImage: getCardImage("rose-market") || "/Rose%20Market%20hero.webp",
+  heroImage: getCardImage("rose-market") || "/Rose-Market.webp",
   heroAlt: "Rose Market at ParkView City Lahore",
   badges: ["Limited Inventory", "Commercial"],
   location: "Rose Market, ParkView City Lahore",
@@ -275,7 +275,7 @@ const LAHORE_COMMERCIAL_GALLERY = [
   { src: "/LAHORE-PROJECTS.webp", alt: "ParkView City Lahore commercial architecture" },
   { src: "/LAHORE-first_Section.webp", alt: "ParkView City Lahore boulevard and community view" },
   { src: "/LAHORE-Last_Section.webp", alt: "ParkView City Lahore premium evening view" },
-  { src: "/Rose%20Market%20hero.webp", alt: "ParkView City Lahore commercial market view" },
+  { src: "/Rose-Market.webp", alt: "ParkView City Lahore commercial market view" },
   { src: "/ProjectLahore.png", alt: "ParkView City Lahore aerial overview" },
 ];
 
@@ -298,6 +298,7 @@ function commercialDetail({
 }): PropertyDetailData {
   const cardImage = getCardImage(id);
   const detailHeroImage = cardImage || heroImage;
+  const badges = badge.toLowerCase().includes("commercial") ? [badge] : [badge, "Commercial"];
 
   return {
     id,
@@ -305,7 +306,7 @@ function commercialDetail({
     title,
     heroImage: detailHeroImage,
     heroAlt: `${title} at ParkView City Lahore`,
-    badges: [badge, "Commercial"],
+    badges,
     location,
     description,
     features,
@@ -369,5 +370,5 @@ export const COMMERCIAL_PLOTS_DETAIL = commercialDetail({
   description:
     "Commercial Plots at ParkView City Lahore offer flexible opportunities for businesses and investors seeking a planned commercial presence inside a growing gated community.",
   features: ["Flexible Plot Options", "Planned Commercial Zones", "Investor Opportunity", "Community Access", "Modern Infrastructure", "Long-Term Value"],
-  heroImage: "/ProjectLahore.png",
+  heroImage: "/commerical-plots.webp",
 });

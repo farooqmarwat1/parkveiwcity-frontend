@@ -84,7 +84,7 @@ export const aboutCommunities: CommunityItem[] = [
     location: "Lahore, Pakistan",
     description:
       "A connected residential and commercial community focused on accessibility, lifestyle, green spaces, amenities, and modern urban living.",
-    image: "/ProjectLahore.png",
+    image: "/LahorePorjectPic.webp",
     logo: "/PVLahore.png",
     route: "/lahore",
     status: "available",
@@ -95,7 +95,7 @@ export const aboutCommunities: CommunityItem[] = [
     location: "Islamabad, Pakistan",
     description:
       "A scenic capital-city destination combining natural surroundings, residential communities, commercial opportunities, and modern amenities.",
-    image: "/ProjectIslamabad.png",
+    image: "/firstsection-isb.png",
     logo: "/PVIsb.png",
     route: "/islamabad",
     status: "available",
