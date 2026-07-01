@@ -43,11 +43,52 @@ import IslamabadAmenitiesPage from "@/components/islamabad/IslamabadAmenitiesPag
 import IslamabadPaymentPlansPage from "@/components/islamabad/IslamabadPaymentPlansPage";
 import { J_BLOCK_DETAIL, D_BLOCK_DETAIL, OVERSEAS_PREMIUM_DETAIL, AB_BLOCK_DETAIL, TERRACE_C_BLOCK_DETAIL, E_BLOCK_DETAIL, F_BLOCK_DETAIL, H_BLOCK_DETAIL, BOULEVARD_DETAIL, THE_WALK_DETAIL, DOWNTOWN_ISLAMABAD_DETAIL, OVERSEAS_COMMERCIAL_DETAIL, FOUNTAIN_VIEW_DETAIL } from "@/data/islamabadProperties";
 
+type EnquiryCity = "lahore" | "islamabad";
+
+const enquiryTargets: Record<EnquiryCity, { route: string; id: string }> = {
+  lahore: { route: "/lahore", id: "lahore-enquiry-form" },
+  islamabad: { route: "/islamabad", id: "islamabad-enquiry-form" },
+};
+
+function scrollToElement(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function scrollToEnquiryForm(
+  city: EnquiryCity,
+  pathname: string,
+  navigate: ReturnType<typeof useNavigate>,
+  closeOverlay: () => void,
+) {
+  const target = enquiryTargets[city];
+  closeOverlay();
+
+  if (pathname === target.route) {
+    navigate(`${target.route}#${target.id}`, {
+      state: { scrollTo: target.id, ts: Date.now() },
+    });
+    window.requestAnimationFrame(() => scrollToElement(target.id));
+    return;
+  }
+
+  navigate(`${target.route}#${target.id}`, {
+    state: { scrollTo: target.id, ts: Date.now() },
+  });
+}
+
 /* ── Scroll to top on route change (skip if hash is present) ──── */
 function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, state } = useLocation();
+  const scrollState = state as { scrollTo?: string; ts?: number } | null;
+  const stateTarget = scrollState?.scrollTo;
+  const stateTs = scrollState?.ts;
+
   useEffect(() => {
-    if (!hash) {
+    const hashTarget = hash ? hash.slice(1) : "";
+    const targetId = stateTarget ?? hashTarget;
+
+    if (!targetId) {
       window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       return;
     }
@@ -55,8 +96,7 @@ function ScrollToTop() {
     let cancelled = false;
     function scrollToAnchor() {
       if (cancelled) return;
-      const el = document.getElementById(hash.slice(1));
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToElement(targetId);
     }
 
     // Wait for fonts to finish swapping in (font-display: swap) before
@@ -74,7 +114,7 @@ function ScrollToTop() {
       cancelled = true;
       window.clearTimeout(timer);
     };
-  }, [pathname, hash]);
+  }, [pathname, hash, stateTarget, stateTs]);
   return null;
 }
 
@@ -96,6 +136,7 @@ function HomePage() {
 /* ── Lahore home page — overlay state lives here ──────────────── */
 function LahoreHomePage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
 
@@ -113,9 +154,7 @@ function LahoreHomePage() {
   }
 
   function handleEnquire() {
-    clearScrollLock();
-    setSelectedProperty(null);
-    navigate("/lahore#lahore-enquiry-form");
+    scrollToEnquiryForm("lahore", location.pathname, navigate, closeLahoreOverlay);
   }
 
   function handleScheduleCall() {
@@ -167,6 +206,7 @@ function LahoreHomePage() {
 /* ── Islamabad home page — overlay state lives here ───────────────── */
 function IslamabadHomePage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
 
@@ -179,9 +219,10 @@ function IslamabadHomePage() {
   }
 
   function handleEnquire() {
-    clearScrollLock();
-    setSelectedProperty(null);
-    navigate("/islamabad#islamabad-enquiry-form");
+    scrollToEnquiryForm("islamabad", location.pathname, navigate, () => {
+      clearScrollLock();
+      setSelectedProperty(null);
+    });
   }
 
   function handleScheduleCall() {

@@ -35,7 +35,7 @@ export default function OurAchievementsSection() {
             Our Achievements
           </h2>
 
-          <p className="mt-5 whitespace-nowrap font-roboto font-light text-[#58595B]"
+          <p className="mt-5 w-full max-w-[720px] whitespace-normal text-wrap break-words font-roboto font-light text-[#58595B]"
              style={{ fontSize: "16px", lineHeight: "28px", letterSpacing: "0.9px" }}>
             Milestones that define a legacy — recognition, records, sustainability, innovation, and meaningful community progress.
           </p>

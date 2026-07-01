@@ -30,7 +30,7 @@ const stagger: Variants = {
 };
 
 function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 /* ── Value icons (order matches aboutValues array) ───────────── */
@@ -88,7 +88,15 @@ export default function AboutPage() {
 
           <motion.div variants={fadeUp} className="mt-7">
             <span className="font-roboto">
-              <ExploreButton label="Explore Our Projects" variant="stats" href="/#projects" />
+              <ExploreButton
+                label="Explore Our Projects"
+                variant="stats"
+                href="#about-projects"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("about-projects");
+                }}
+              />
             </span>
           </motion.div>
         </motion.div>
@@ -215,7 +223,7 @@ export default function AboutPage() {
       {/* ═══════════════════════════════
           4 ▸ OUR COMMUNITIES
       ═══════════════════════════════ */}
-      <Section id="our-communities" className="bg-white py-16 sm:py-24">
+      <Section id="about-projects" className="bg-white py-16 sm:py-24 scroll-mt-24">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10">
 
           <motion.div
@@ -309,7 +317,7 @@ export default function AboutPage() {
             className="mb-10 text-center"
           >
             <motion.p variants={fadeUp}
-              className="mb-3 font-roboto text-[14px] font-light uppercase tracking-[0.35em] text-pvc-grey"
+              className="mb-3 font-roboto text-[11px] font-light uppercase tracking-[0.35em] text-pvc-grey"
             >
               Our Scale
             </motion.p>
@@ -320,7 +328,7 @@ export default function AboutPage() {
               PARKVIEW CITY BY THE NUMBERS
             </motion.h2>
             <motion.p variants={fadeUp}
-              className="mx-auto mt-5 max-w-[620px] font-roboto text-[12px] font-light leading-[20px] text-pvc-grey"
+              className="mx-auto mt-5 max-w-[620px] bg-transparent font-roboto text-[14px] font-light leading-[24px] text-pvc-grey"
             >
               Environmental figures reflect information reported through ParkView City's
               official Green Pledge content. City development count reflects publicly
