@@ -79,7 +79,7 @@ export default function IslamabadPaymentPlansPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: easeOut }}
-            className="mt-6 sm:mt-0"
+            className="mt-6"
           >
             <span className="font-roboto">
               <ExploreButton label="Explore" variant="stats" href="#payment-plans-content" />

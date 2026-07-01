@@ -77,7 +77,7 @@ export default function LahorePaymentPlansPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: easeOut }}
             className="max-w-[90vw] text-center text-white font-termina hero-title-termina uppercase"
-            style={{ fontSize: "24px", fontWeight: 500, lineHeight: "88.2px", letterSpacing: "0px" }}
+            style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0px" }}
           >
             Payment Plans
           </motion.h1>
@@ -85,7 +85,7 @@ export default function LahorePaymentPlansPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: easeOut }}
-            className="mt-6 sm:mt-0"
+            className="mt-6"
           >
             <span className="font-roboto">
               <ExploreButton label="Explore" variant="stats" href="#payment-plans-content" />
